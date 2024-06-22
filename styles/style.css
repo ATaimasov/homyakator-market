@@ -376,7 +376,7 @@ html {
     /* font-size: 62.5%; */
 }
 
-section {
+.wrapper {
     max-width: 1600px;
     margin: 0 auto;
 }
@@ -512,7 +512,7 @@ background: linear-gradient(45deg, rgb(207, 210, 189), rgb(212, 215, 194), rgb(2
 
 /* about-us start  */
 
-.about-us {
+.about-us_wrapper {
     display: flex;
     flex-direction: column;
     margin:  0 auto;
@@ -599,11 +599,15 @@ background: linear-gradient(45deg, rgb(207, 210, 189), rgb(212, 215, 194), rgb(2
 /* goods start  */
 
 .goods {
+    background-color: #f7f5f2;
+}
+
+.goods_wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
-    background-color: #f7f5f2;
+    
 }
 
 .goods-title {
@@ -620,6 +624,7 @@ border-bottom: 1px solid #e6e4e2;
     display: flex;
     margin: 0 auto;
     margin-top: 60px;
+    flex-wrap: wrap;
 }
 
 .goods-filter-item {
@@ -647,7 +652,8 @@ border-bottom: 1px solid #e6e4e2;
 .goods-cards-container {
     display: flex;
     justify-content: center;
-
+    margin-bottom: 50px;
+    flex-wrap: wrap;
 }
 
 .goods-card {
@@ -666,7 +672,13 @@ border-bottom: 1px solid #e6e4e2;
     height: auto;
     max-width: 387px;
     clip-path: inset(0 0 0 0 round 5% 20% 2% 10%);
+    transition: clip-path 0.5s cubic-bezier(0.47, -0.44, 0.49, 1.46), transform 0.5s cubic-bezier(0.47, -0.44, 0.49, 1.46);
 
+}
+
+.goods-card-img:hover {
+    clip-path: inset(0 0 0 0 round 2% 10% 5% 20%);
+   
 }
 
 .goods-card-img-title {
@@ -679,6 +691,7 @@ border-bottom: 1px solid #e6e4e2;
     padding-bottom: 10px;
     margin-top: 15px;
     border-bottom: 1px solid #e6e4e2;
+    
 }
 
 .goods-card-info-container {
@@ -698,7 +711,6 @@ border-bottom: 1px solid #e6e4e2;
     cursor: cell;
     transition: color .4s cubic-bezier(0.47, -0.44, 0.49, 1.46), border .4s cubic-bezier(0.47, -0.44, 0.49, 1.46);
     border: 1.5px solid transparent; 
-    margin-bottom: 50px;
 }
 
 .good-card-info-add:is(:hover, :active, :focus) {
@@ -722,5 +734,169 @@ border-bottom: 1px solid #e6e4e2;
 }
 /* goods end  */
 
+/* news start  */
+
+.new_wrapper {
+    padding-top: 70px;
+}
+
+.new-header {
+    font-weight: 700;
+    font-size: 4.5rem;
+    line-height: 100%;
+    color: #343434;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+
+
+.new-goods-container {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    /* grid-template-columns: repeat(1, 66.6%); */
+    max-width: 66.6%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+
+.new-good-container {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 60px 0;
+}
+
+.new-good-container-gray {
+    position: relative;
+    z-index: 0;
+}
+
+.new-good-container-gray::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 150%;
+    height: 100%;
+    background-color: #f7f5f2;
+    z-index: -1;
+}
+
+.new-good-container-gray::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 100%;
+    background-color: #f7f5f2;
+    z-index: -1;
+}
+
+.img-new-good {
+    max-width: 50%;
+    clip-path: circle(50%);   
+    object-fit: contain;
+}
+
+.img-new-good-title-section {
+    align-self: center;
+    margin: 0 auto;
+    padding: 35px 90px;
+}
+
+.img-new-good-title {
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 100%;
+    color: #343434;
+    padding-bottom: 15px;
+}
+
+.img-new-good-text{
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 171%;
+    color: #747474;
+}
+
+.img-new-good-title-section-left{
+    order: -1;
+}
+
+
+/* news end  */
+
+
+/* contact form start  */
+
+.contact-form_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.contact-form-header{
+    margin: 66px 0 0 58px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 113%;
+    color: #343434;
+}
+
+.contact-form-text {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 171%;
+    text-align: center;
+    color: #747474;
+    padding-bottom: 15px;
+}
+
+
+.contact-form-inputs-container{
+    display: flex;
+}
+
+.contact-form-input-container {
+    min-width: 240px;
+}
+
+.input{
+    height: 60px;
+}
+
+.input::placeholder {
+
+font-weight: 300;
+font-size: 2rem;
+line-height: 226%;
+text-align: center;
+color: #000;
+}
+
+.contact-button {
+    background-color: #343434;
+    color: white;
+    max-width: 100px;
+    max-height: 58px;
+    border-radius: 5px;
+}
+
+.contact-button-text {
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 171%;
+    letter-spacing: 0.21em;
+    text-transform: uppercase;
+    text-align: center;
+ 
+}
+
+/* contact form end  */
 
 /* main styles end  */
