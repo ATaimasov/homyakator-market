@@ -1337,7 +1337,7 @@ max-width: 390px;
 }
 
 .goods-card {
-    padding-left: 50px;
+    padding: 0 50px;
 }
 
 .slick-dots {
@@ -1381,6 +1381,22 @@ max-width: 390px;
     visibility: hidden;
 }
 
+.goods-card.exotic {
+    position: relative;
+}
+
+.transparent:hover {
+    opacity: .2;
+}
+
+
+
+.non-transparent {
+    position: absolute;
+    top: 0;
+    left: 5;
+
+}
 
 /* slider end  */
 
