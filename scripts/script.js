@@ -12,6 +12,7 @@
        easing: "ease-in",
        dots: true, 
        variableWidth: true,
+       infinite: false,
     })
 })(jQuery);
 
