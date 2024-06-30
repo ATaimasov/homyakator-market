@@ -19,135 +19,242 @@
 let filtered = false;
 let filterItems = $('.goods-filter-item');
 
-let makeFilteredDry = (event) => {
-    if (filtered === false) {
+const makeFiltered = (event, filterClass) => {
+    const target = $(event.target);
+  
+    if (target.hasClass("goods-filter-item-active")) {
+      target.removeClass("goods-filter-item-active");
+      if (!filterItems.hasClass("goods-filter-item-active")) {
+        $('.slider').slick('slickUnfilter');
+        filtered = false;
+      }
+      return;
+    }
+  
+    filterItems.not(target).removeClass("goods-filter-item-active");
+    target.addClass("goods-filter-item-active");
+  
+    if (filtered) {
+      $('.slider').slick('slickUnfilter');
+    }
+  
+    $('.slider').slick(`slickFilter`, `.${filterClass}`);
+    filtered = true;
+  }
+  
+$('#mix').on('click', (event) => makeFiltered(event, 'mix'));
+$('#set').on('click', (event) => makeFiltered(event, 'set'));
+$('#new').on('click', (event) => makeFiltered(event, 'new'));
+$('#grains').on('click', (event) => makeFiltered(event, 'grains'));
+$('#dry').on('click', (event) => makeFiltered(event, 'dry'));
+$('#discount').on('click', (event) => makeFiltered(event, 'discount'));
+$('#exotic').on('click', (event) => makeFiltered(event, 'exotic'));
+$('#healthy').on('click', (event) => makeFiltered(event, 'healthy'));
 
-        $('.slider').slick('slickFilter', '.dry');
-        filtered = true;
-        } else {
-            $('.slider').slick('slickUnfilter');
-            filtered = false;
-        }
 
-        const target = $(event.target); 
+// let makeFilteredDry = (event) => {
+//     if (filtered === false) {
 
-        if (target.hasClass("goods-filter-item-active")) {
-            target.removeClass("goods-filter-item-active");
-            return; 
-        }
+//         $('.slider').slick('slickFilter', '.dry');
+//         filtered = true;
+//         } else {
+//             $('.slider').slick('slickUnfilter');
+//             filtered = false;
+//         }
 
-        filterItems.not(target).removeClass("goods-filter-item-active");
-        target.addClass("goods-filter-item-active");
-}
+//         const target = $(event.target); 
 
-$('#dry').on('click', makeFilteredDry);
+//         if (target.hasClass("goods-filter-item-active")) {
+//             target.removeClass("goods-filter-item-active");
+//             return; 
+//         }
+
+//         filterItems.not(target).removeClass("goods-filter-item-active");
+//         target.addClass("goods-filter-item-active");
+// }
+
+// $('#dry').on('click', makeFilteredDry);
 
 
 
 
-let makeFilteredExotic = (event) => {
+// let makeFilteredExotic = (event) => {
 
-    if (filtered === false) {
-                $('.slider').slick('slickFilter', '.exotic');
-                filtered = true;
-            } else {
-                $('.slider').slick('slickUnfilter');
-                filtered = false;
-            }
+//     if (filtered === false) {
+//                 $('.slider').slick('slickFilter', '.exotic');
+//                 filtered = true;
+//             } else {
+//                 $('.slider').slick('slickUnfilter');
+//                 filtered = false;
+//             }
 
            
-        const target = $(event.target); 
+//         const target = $(event.target); 
 
-        if (target.hasClass("goods-filter-item-active")) {
-            target.removeClass("goods-filter-item-active");
-            return; 
-        }
+//         if (target.hasClass("goods-filter-item-active")) {
+//             target.removeClass("goods-filter-item-active");
+//             return; 
+//         }
 
-        filterItems.not(target).removeClass("goods-filter-item-active");
-        target.addClass("goods-filter-item-active"); 
-}
+//         filterItems.not(target).removeClass("goods-filter-item-active");
+//         target.addClass("goods-filter-item-active"); 
+// }
 
-$('#exotic').on('click', makeFilteredExotic);
-
-
-let makeFilteredMix = (event) => {
-
-    if (filtered === false) {
-        $('.slider').slick('slickFilter', '.mix');
-        filtered = true;
-    } else {
-        $('.slider').slick('slickUnfilter');
-        filtered = false;
-    }
-}
-
-$('#mix').on('click', makeFilteredMix);
+// $('#exotic').on('click', makeFilteredExotic);
 
 
-let makeFilteredSet = (event) => {
+// let makeFilteredMix = (event) => {
 
-    if (filtered === false) {
-        $('.slider').slick('slickFilter', '.set');
-        filtered = true;
-    } else {
-        $('.slider').slick('slickUnfilter');
-        filtered = false;
-    }
-}
+//     if (filtered === false) {
+//         $('.slider').slick('slickFilter', '.mix');
+//         filtered = true;
+//     } else {
+//         $('.slider').slick('slickUnfilter');
+//         filtered = false;
+//     }
 
-$('#set').on('click', makeFilteredSet);
+   
+// const target = $(event.target); 
 
-let makeFilteredNew = (event) => {
+// if (target.hasClass("goods-filter-item-active")) {
+//     target.removeClass("goods-filter-item-active");
+//     return; 
+// }
 
-    if (filtered === false) {
-        $('.slider').slick('slickFilter', '.new');
-        filtered = true;
-    } else {
-        $('.slider').slick('slickUnfilter');
-        filtered = false;
-    }
-}
+// filterItems.not(target).removeClass("goods-filter-item-active");
+// target.addClass("goods-filter-item-active"); 
 
-$('#new').on('click', makeFilteredNew);
+// }
 
-let makeFilteredGrains = (event) => {
+// $('#mix').on('click', makeFilteredMix);
 
-    if (filtered === false) {
-        $('.slider').slick('slickFilter', '.grains');
-        filtered = true;
-    } else {
-        $('.slider').slick('slickUnfilter');
-        filtered = false;
-    }
-}
 
-$('#grains').on('click', makeFilteredGrains);
+// let makeFilteredSet = (event) => {
 
-let makeFilteredDiscount = (event) => {
+//     if (filtered === false) {
+//         $('.slider').slick('slickFilter', '.set');
+//         filtered = true;
+//     } else {
+//         $('.slider').slick('slickUnfilter');
+//         filtered = false;
+//     }
 
-    if (filtered === false) {
-        $('.slider').slick('slickFilter', '.discount');
-        filtered = true;
-    } else {
-        $('.slider').slick('slickUnfilter');
-        filtered = false;
-    }
-}
+   
+// const target = $(event.target); 
 
-$('#discount').on('click', makeFilteredDiscount);
+// if (target.hasClass("goods-filter-item-active")) {
+//     target.removeClass("goods-filter-item-active");
+//     return; 
+// }
 
-let makeFilteredHealthy = (event) => {
+// filterItems.not(target).removeClass("goods-filter-item-active");
+// target.addClass("goods-filter-item-active"); 
 
-    if (filtered === false) {
-        $('.slider').slick('slickFilter', '.healthy');
-        filtered = true;
-    } else {
-        $('.slider').slick('slickUnfilter');
-        filtered = false;
-    }
-}
+// }
 
-$('#healthy').on('click', makeFilteredHealthy);
+// $('#set').on('click', makeFilteredSet);
+
+// let makeFilteredNew = (event) => {
+
+//     if (filtered === false) {
+//         $('.slider').slick('slickFilter', '.new');
+//         filtered = true;
+//     } else {
+//         $('.slider').slick('slickUnfilter');
+//         filtered = false;
+//     }
+
+   
+// const target = $(event.target); 
+
+// if (target.hasClass("goods-filter-item-active")) {
+//     target.removeClass("goods-filter-item-active");
+//     return; 
+// }
+
+// filterItems.not(target).removeClass("goods-filter-item-active");
+// target.addClass("goods-filter-item-active"); 
+
+// }
+
+// $('#new').on('click', makeFilteredNew);
+
+// let makeFilteredGrains = (event) => {
+
+//     if (filtered === false) {
+//         $('.slider').slick('slickFilter', '.grains');
+//         filtered = true;
+//     } else {
+//         $('.slider').slick('slickUnfilter');
+//         filtered = false;
+//     }
+
+   
+// const target = $(event.target); 
+
+// if (target.hasClass("goods-filter-item-active")) {
+//     target.removeClass("goods-filter-item-active");
+//     return; 
+// }
+
+// filterItems.not(target).removeClass("goods-filter-item-active");
+// target.addClass("goods-filter-item-active"); 
+
+// }
+
+// $('#grains').on('click', makeFilteredGrains);
+
+
+// let makeFilteredDiscount = (event) => {
+
+//     if (filtered === false) {
+//         $('.slider').slick('slickFilter', '.discount');
+//         filtered = true;
+//     } else {
+//         $('.slider').slick('slickUnfilter');
+//         filtered = false;
+//     }
+
+   
+// const target = $(event.target); 
+
+// if (target.hasClass("goods-filter-item-active")) {
+//     target.removeClass("goods-filter-item-active");
+//     return; 
+// }
+
+// filterItems.not(target).removeClass("goods-filter-item-active");
+// target.addClass("goods-filter-item-active"); 
+
+// }
+
+// $('#discount').on('click', makeFilteredDiscount);
+
+
+// let makeFilteredHealthy = (event) => {
+
+//     if (filtered === false) {
+//         $('.slider').slick('slickFilter', '.healthy');
+//         filtered = true;
+//     } else {
+//         $('.slider').slick('slickUnfilter');
+//         filtered = false;
+//     }
+
+   
+// const target = $(event.target); 
+
+// if (target.hasClass("goods-filter-item-active")) {
+//     target.removeClass("goods-filter-item-active");
+//     return; 
+// }
+
+// filterItems.not(target).removeClass("goods-filter-item-active");
+// target.addClass("goods-filter-item-active"); 
+
+// }
+
+// $('#healthy').on('click', makeFilteredHealthy);
 
 
 
