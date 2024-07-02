@@ -30,351 +30,345 @@
 </head>
 <body>
     <header class="header">
-        <div class="wrapper">
-            <div class="header-title-container">
-                <h1 class="header-title">H o m y a k a t o r </h1>
-                <h2 class="header-subtitle">Market</h2>
+        <div class="common-wrapper">
+            <div class="header__title-container">
+                <h1 class="header__title">H o m y a k a t o r </h1>
+                <h2 class="header__subtitle">Market</h2>
             </div>
-            <nav class="header-nav">
-                <ul class="header-list">
-                    <li class="header-item"><a href="" class="header-link">Goods</a></li>
-                    <li class="header-item"><a href="" class="header-link">Promotions</a></li>
-                    <li class="header-item"><a href="" class="header-link">New Products</a></li>
-                    <li class="header-item"><a href="" class="header-link">Revievs</a></li>
-                    <li class="header-item"><a href="" class="header-link">Contacts</a></li>
+            <nav class="header__nav">
+                <ul class="header__list">
+                    <li class="header__item"><a href="" class="header__link">Goods</a></li>
+                    <li class="header__item"><a href="" class="header__link">Promotions</a></li>
+                    <li class="header__item"><a href="" class="header__link">New Products</a></li>
+                    <li class="header__item"><a href="" class="header__link">Revievs</a></li>
+                    <li class="header__item"><a href="" class="header__link">Contacts</a></li>
                 </ul>
             </nav>
-            <div class="tagline-container">
-                <h3 class="tagline">Homa is good</h3>
-                <h3 class="tagline">Homa is life</h3>
+            <div class="header__slogan-container">
+                <h3 class="header__slogan-item">Homa is good</h3>
+                <h3 class="header__slogan-item">Homa is life</h3>
             </div>
-            <div class="button-shop-now-container">
-                <a href="" class="button-shop-now">shop now</a>
+            <div class="button header__button" role="button" tabindex="0">
+                <a href="#buy" class="header__button-link button--scale">shop now</a>
             </div>
+            
             
         </div>
     </header>
     <main class="main">
             <section class="about-us">
-                <div class="about-us_wrapper">
-                    <div class="about-us-main-title-container">
-                        <h4 class="about-us-header">
+                        <h4 class="about-us__header">
                             Why choose us?
                         </h4>
-                    </div>
-                    <div class="about-us-list">
-                        <div class="about-us-item">
-                            <div class="about-us-img-container">
-                                <img src="/img/rich-in-vitamins.jpeg" alt="rich-in-vitamins" class="about-us-img"></div>
-                            <div class="about-us-title-container">
-                                <h3 class="about-ut-title-header">Multivitamin</h3>
-                                <p class="about-us-text">Our food is rich in vitamins and minerals that are essential for your health and longevity.</p>
+                    <div class="about-us__list">
+                        <div class="about-us__item">
+                                <img src="/img/rich-in-vitamins.jpeg" alt="rich-in-vitamins" class="about-us__image">
+                            <div class="about-us__text">
+                                <h3 class="about-us__item-title">Multivitamin</h3>
+                                <p class="about-us__item-text">Our food is rich in vitamins and minerals that are essential for your health and longevity.</p>
                             </div>
                         </div>
-                        <div class="about-us-item">
-                            <div class="about-us-img-container">
-                                <img src="/img/wide-offer.jpeg" alt="wide-offer" class="about-us-img"></div>
-                            <div class="about-us-title-container">
-                                <h3 class="about-ut-title-header">Wide offer</h3>
-                                <p class="about-us-text">We offer a wide range of feeds and grains in a variety of flavors and additives to meet your every need</p>
+                        <div class="about-us__item">
+                                <img src="/img/wide-offer.jpeg" alt="wide-offer" class="about-us__image">
+                            <div class="about-us__title-container">
+                                <h3 class="about-us__item-title">Wide offer</h3>
+                                <p class="about-us__item-text">We offer a wide range of feeds and grains in a variety of flavors and additives to meet your every need</p>
                             </div>
                             <!-- we offer mixes, exotic food, sets, healthy -->
                         </div>
-                        <div class="about-us-item">
-                            <div class="about-us-img-container">
-                                <img src="/img/no-allergy.jpeg" alt="no-allergy" class="about-us-img"></div>
-                            <div class="about-us-title-container">
-                                <h3 class="about-ut-title-header">No allergy</h3>
-                                <p class="about-us-text">Homyakator food is easy to digest and does not cause allergies or other health problems.</p>
+                        <div class="about-us__item">
+                                <img src="/img/no-allergy.jpeg" alt="no-allergy" class="about-us__image">
+                            <div class="about-us__title-container">
+                                <h3 class="about-us__item-title">No allergy</h3>
+                                <p class="about-us__item-text">Homyakator food is easy to digest and does not cause allergies or other health problems.</p>
                             </div>
                            
                         </div>
                     </div>
-                </div>
             </section>
-            <section class="goods">
-                <div class="goods-title-container">
-                        <h4 class="goods-title">Сhoose your food</h4>
-                    </div>
-                <div class="goods_wrapper wrapper">
+            <section class="goods" id="buy">
+                        <h4 class="goods__header">Сhoose your food</h4>
+                <div class="goods__wrapper common-wrapper">
                     
-                    <ul class="goods-filter-list">
-                        <li class="goods-filter-item" id="mix">Mixs</li>
-                        <li class="goods-filter-item" id="set">Sets</li>
-                        <li class="goods-filter-item" id="new">New</li>
-                        <li class="goods-filter-item" id="grains">Grains</li>
-                        <li class="goods-filter-item" id="dry">Dry food</li>
-                        <li class="goods-filter-item" id="discount">Discount</li>
-                        <li class="goods-filter-item" id="exotic">Exotic</li>
-                        <li class="goods-filter-item" id="healthy">Healthy</li>
+                    <ul class="goods__filter-list">
+                        <li class="goods__filter-item" id="mix" >Mixs</li>
+                        <li class="goods__filter-item" id="set" >Sets</li>
+                        <li class="goods__filter-item" id="new" >New</li>
+                        <li class="goods__filter-item" id="grains" >Grains</li>
+                        <li class="goods__filter-item" id="dry" >Dry food</li>
+                        <li class="goods__filter-item" id="discount" >Discount</li>
+                        <li class="goods__filter-item" id="exotic" >Exotic</li>
+                        <li class="goods__filter-item" id="healthy" >Healthy</li>
                     </ul>
+
+                    <!-- tabindex=0 настроить -->
                     
-                    <div class="wrapper-slider">
-                        <div class="goods-cards-container slider">
+                    <div class="slider-wrapper">
+                        <div class="flex-wrapper goods-cards slider">
                             <div class="goods-card mix">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/mixs/mix1.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Nutty Mosaic Box</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/mixs/mix1.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Nutty Mosaic Box</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container ">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">4$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">4$ per 100 gram</p>
                                 </div>
                             </div>
                           
                             <div class="goods-card healthy dry new">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/healthy/healthy1.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Cornucopia Crunch</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/healthy/healthy1.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Cornucopia Crunch</figcaption>
                                 </figure>
                                 <!-- a horn of plenty, filled with crunchy, tasty treats. -->
-                                <div class="goods-card-info-container ">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">4$ per 100 gram</p>
+                                <div class="goods-card__info ">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">4$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card set new">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/set/set1.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Hamster Harvest</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/set/set1.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Hamster Harvest</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container ">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">4$ per 100 gram</p>
+                                <div class="goods-card__info ">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">4$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card mix">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/mixs/mix2.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Treasure Trove Box</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/mixs/mix2.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Treasure Trove Box</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">3$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">3$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card grains">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/grains/barley.jpeg" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Barley</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/grains/barley.jpeg" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Barley</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">3$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">3$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card mix">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/mixs/mix3.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Nutty Nirvana Box</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/mixs/mix3.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Nutty Nirvana Box</figcaption>
                                 </figure>
                                  <!-- a state of ultimate happiness and satisfaction for hamsters, with each section offering a different type of nutty bliss. -->
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card grains">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/grains/corn.jpeg" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Corn</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/grains/corn.jpeg" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Corn</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card dry">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/dry/dry2.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">dry2</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/dry/dry2.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">dry2</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card dry">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/dry/dry3.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">dry3</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/dry/dry3.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">dry3</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card mix">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/mixs/mix4.jpeg" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Nutty Delight Box</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/mixs/mix4.jpeg" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Nutty Delight Box</figcaption>
                                 </figure>
                                 <!-- a delightful snacking experience. -->
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card dry">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/dry/dry4.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Burrow Bites</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/dry/dry4.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Burrow Bites</figcaption>
                                     <!-- tasty and convenient snack. -->
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card mix">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/mixs/mix5.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Deluxe Nut Box</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/mixs/mix5.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Deluxe Nut Box</figcaption>
                                 </figure>
                                 <!-- a premium snacking experience, with each section offering a high-quality selection of nuts for to enjoy -->
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                            
                             <div class="goods-card mix">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/mixs/mix6.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Hamster's Nutty Vault</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/mixs/mix6.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Hamster's Nutty Vault</figcaption>
                                 </figure>
                                 <!-- vault-like package that's filled with a treasure trove of nuts to enjoy. -->
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card set">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/set/set2.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Festive Banquet</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/set/set2.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Festive Banquet</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                            
                             
                             <div class="goods-card exotic">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/exotic/exotic1.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Sunny Bites</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/exotic/exotic1.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Sunny Bites</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card exotic new">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/exotic/exotic2.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Paws & Crisps</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/exotic/exotic2.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Paws & Crisps</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card dry discount">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/dry/dry7.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">dry 7</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/dry/dry7.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">dry 7</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card dry">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/dry/dry8.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">dry 8</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/dry/dry8.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">dry 8</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
 
                             <div class="goods-card set">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/set/set3.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Forest Feast</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/set/set3.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Forest Feast</figcaption>
                                 </figure>
                                 <!--  an abundance of nuts, with each section offering a different type of forest delicacy to enjoy. -->
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card exotic">
-                                <img src="/img/food/exotic/exotic3-transparent.png" alt="" class="goods-card-img non-transparent">
+                                <img src="/img/food/exotic/exotic3-transparent.png" alt="" class="goods-card__image non-transparent">
 
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/exotic/exotic3.png" alt="" class="goods-card-img transparent">
-                                    <figcaption class="goods-card-img-title">Тropical Delight</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/exotic/exotic3.png" alt="" class="goods-card__image transparent">
+                                    <figcaption class="goods-card__image-title">Тropical Delight</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card grains">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/grains/oats.jpeg" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Oats</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/grains/oats.jpeg" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Oats</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card grains discount">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/grains/wheat.jpeg" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Wheat</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/grains/wheat.jpeg" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Wheat</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
 
                             <div class="goods-card set">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/set/set4.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Tiny Treat Trove</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/set/set4.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Tiny Treat Trove</figcaption>
                                     <!-- a treasure trove of tasty treats for you -->
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card set">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/set/set7.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">Snuggle Snacks</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/set/set7.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">Snuggle Snacks</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                             <div class="goods-card healthy">
-                                <figure class="goods-card-img-container">
-                                    <img src="/img/food/healthy/healthy2.png" alt="" class="goods-card-img">
-                                    <figcaption class="goods-card-img-title">healthy 2</figcaption>
+                                <figure class="goods-card__image-container">
+                                    <img src="/img/food/healthy/healthy2.png" alt="" class="goods-card__image">
+                                    <figcaption class="goods-card__image-title">healthy 2</figcaption>
                                 </figure>
-                                <div class="goods-card-info-container">
-                                    <p class="good-card-info-add">Add to bag</p>
-                                    <p class="good-card-info-price">2$ per 100 gram</p>
+                                <div class="goods-card__info">
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </div>
                         </div>
@@ -386,40 +380,40 @@
                 
             </section>
             <section class="new">
-                <div class="new_wrapper wrapper">
+                <div class="new__wrapper common-wrapper">
                     <h4 class="new-header">
                         What's Fresh
                     </h4>
                     <div class="new-goods-container">
                             <figure class="new-good-container">
-                                <img src="/img/food/healthy/healthy1.png" alt="" class="img-new-good">
-                                <figcaption class="img-new-good-title-section">
-                                    <h5 class="img-new-good-title">
+                                <img src="/img/food/healthy/healthy1.png" alt="" class="new-good__image">
+                                <figcaption class="new-good__image-text">
+                                    <h5 class="new-good__image-title">
                                         Cornucopia Crunch
                                     </h5>
-                                    <p class="img-new-good-text">
+                                    <p class="new-good__image-desc">
                                         Try this dish filled with dried asparagus and corn. Get the satisfying goodness
                                     </p>
                                 </figcaption>
                             </figure>
                             <figure class="new-good-container new-good-container-gray">
-                                <img src="/img/food/set/set1.png" alt="" class="img-new-good">
-                                <figcaption class="img-new-good-title-section img-new-good-title-section-left">
-                                    <h5 class="img-new-good-title">
+                                <img src="/img/food/set/set1.png" alt="" class="new-good__image">
+                                <figcaption class="new-good__image-text new-good__image-text-left">
+                                    <h5 class="new-good__image-title">
                                         Hamster Harvest
                                     </h5>
-                                    <p class="img-new-good-text">
+                                    <p class="new-good__image-desc">
                                        Try a bountiful and healthy selection of food.
                                     </p>
                                 </figcaption>
                             </figure>
                             <figure class="new-good-container">
-                                <img src="/img/food/exotic/exotic2.png" alt="" class="img-new-good">
-                                <figcaption class="img-new-good-title-section">
-                                    <h5 class="img-new-good-title">
+                                <img src="/img/food/exotic/exotic2.png" alt="" class="new-good__image">
+                                <figcaption class="new-good__image-text">
+                                    <h5 class="new-good__image-title">
                                         Paws & Crisps
                                     </h5>
-                                    <p class="img-new-good-text">
+                                    <p class="new-good__image-desc">
                                         A crunchy, satisfying human snack.
                                     </p>
                                 </figcaption>
@@ -428,40 +422,40 @@
                 </div>
             </section>
             <section class="contact-form">
-                <div class="contact-form_wrapper wrapper">
+                <div class="contact-form-wrapper common-wrapper flex-wrapper">
                     <h4 class="contact-form-header">Contact form</h4>
-                    <p class="contact-form-text">Would you like to contact us? Just leave your contacts below and we will get back to you as soon as possible.</p>
+                    <p class="contact-form__text">Would you like to contact us? Just leave your contacts below and we will get back to you as soon as possible.</p>
                     <form class="contact-form-inputs-container" method="post">
                         <input type="text" placeholder="First name" class="input" inputmode="text" name="first-name">
                             <input type="email" placeholder="Email adress" class="input" inputmode="email" name="email" required autocomplete>
-                        <button class="contact-button" type="submit"><p class="contact-button-text">Send</p></button>
+                        <button class="contact-button" type="submit"><p class="contact-button__text">Send</p></button>
                     </form>
                 </div>
             </section>
     </main>
     <footer class="footer">
-        <div class="wrapper footer-container">
-            <div class="footer-img-container">
-                <img src="/img/footer-company.png" alt="company-image" class="footer-img">
+        <div class="common-wrapper footer-container">
+            <div class="footer__image-container">
+                <img src="/img/footer-company.png" alt="company-image" class="footer__image">
             </div>
             <div class="footer-info">
-                <div class="footer-menu-container-both">
-                    <ul class="footer-menu">
-                        <li class="footer-menu-item"><h5 class="footer-menu-title">Shop</h5></li>
-                        <li class="footer-menu-item"><a href="" class="footer-menu-link">Shop Exotic food</a></li>
-                        <li class="footer-menu-item"><a href="" class="footer-menu-link">Shop Healthy food</a></li>
+                <div class="footer__menu-container-both">
+                    <ul class="footer__menu">
+                        <li class="footer__menu-item"><h5 class="footer__menu-title">Shop</h5></li>
+                        <li class="footer__menu-item"><a href="" class="footer__menu-link">Shop Exotic food</a></li>
+                        <li class="footer__menu-item"><a href="" class="footer__menu-link">Shop Healthy food</a></li>
                     </ul>
-                    <ul class="footer-menu">
-                        <li class="footer-menu-item"><h5 class="footer-menu-title">About</h5></li>
-                        <li class="footer-menu-item"><a href="" class="footer-menu-link">About Homyakator Market</a></li>
-                        <li class="footer-menu-item"><a href="" class="footer-menu-link">The Homa Life</a></li>
+                    <ul class="footer__menu">
+                        <li class="footer__menu-item"><h5 class="footer__menu-title">About</h5></li>
+                        <li class="footer__menu-item"><a href="" class="footer__menu-link">About Homyakator Market</a></li>
+                        <li class="footer__menu-item"><a href="" class="footer__menu-link">The Homa Life</a></li>
                     </ul>
                 </div>
-                <ul class="footer-menu">
-                    <li class="footer-menu-item"><h5 class="footer-menu-title">Support</h5></li>
-                    <li class="footer-menu-item"><a href="" class="footer-menu-link">Contact Us</a></li>
-                    <li class="footer-menu-item"><a href="" class="footer-menu-link">Terms of Service</a></li>
-                    <li class="footer-menu-item"><a href="" class="footer-menu-link">Privacy Policy</a></li>
+                <ul class="footer__menu">
+                    <li class="footer__menu-item"><h5 class="footer__menu-title">Support</h5></li>
+                    <li class="footer__menu-item"><a href="" class="footer__menu-link">Contact Us</a></li>
+                    <li class="footer__menu-item"><a href="" class="footer__menu-link">Terms of Service</a></li>
+                    <li class="footer__menu-item"><a href="" class="footer__menu-link">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>

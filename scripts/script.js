@@ -23,7 +23,7 @@
           settings: {
             slidesToShow: 1,
             // slidesToScroll: 1
-            // лупит бесконечно
+            // лупит бесконечно. попробовать убрать блокировку прокрутки
          } 
         }
         
@@ -35,21 +35,21 @@
    
 
 let filtered = false;
-let filterItems = $('.goods-filter-item');
+let filterItems = $('.goods__filter-item');
 
 const makeFiltered = (event, filterClass) => {
     const target = $(event.target);
   
-    if (target.hasClass("goods-filter-item-active")) {
-      target.removeClass("goods-filter-item-active");
-      if (!target.hasClass("goods-filter-item-active")) {
+    if (target.hasClass("goods__filter-item--active")) {
+      target.removeClass("goods__filter-item--active");
+      if (!target.hasClass("goods__filter-item--active")) {
         $('.slider').slick('slickUnfilter');
       }
       return;
     }
   
-    filterItems.not(target).removeClass("goods-filter-item-active");
-    target.addClass("goods-filter-item-active");
+    filterItems.not(target).removeClass("goods__filter-item--active");
+    target.addClass("goods__filter-item--active");
   
     if (filtered) {
       $('.slider').slick('slickUnfilter');
