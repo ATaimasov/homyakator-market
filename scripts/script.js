@@ -19,13 +19,7 @@
             slidesToScroll: 2
           }
         },
-          {  breakpoint: 820,
-          settings: {
-            slidesToShow: 1,
-            // slidesToScroll: 1
-            // лупит бесконечно. попробовать убрать блокировку прокрутки
-         } 
-        }
+         
         
        ]
     })
@@ -42,6 +36,8 @@ const makeFiltered = (event, filterClass) => {
   
     if (target.hasClass("goods__filter-item--active")) {
       target.removeClass("goods__filter-item--active");
+      
+      
       if (!target.hasClass("goods__filter-item--active")) {
         $('.slider').slick('slickUnfilter');
       }
