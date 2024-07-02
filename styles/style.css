@@ -648,7 +648,6 @@ background: linear-gradient(45deg, rgb(207, 210, 189), rgb(212, 215, 194), rgb(2
 .goods__filter-item--active {
     background-color: rgb(228, 228, 228);
     font-weight: 600;
-
 }
 
 /* for a properly working of the filter script visual component */
@@ -659,9 +658,6 @@ background: linear-gradient(45deg, rgb(207, 210, 189), rgb(212, 215, 194), rgb(2
     
     }
  }
-
-
-
 
 .goods-cards {
     /* margin-bottom: 50px;  */
@@ -821,14 +817,14 @@ background: linear-gradient(45deg, rgb(207, 210, 189), rgb(212, 215, 194), rgb(2
 
 .contact-form {
     padding-bottom: 75px;
+  
 }
 
-.contact-form-wrapper {
-    display: flex;
+.contact-form__wrapper {
     flex-direction: column;
 }
 
-.contact-form-header{
+.contact-form__header {
     margin: 66px 0 58px 0 ;
     text-align: center;
     font-weight: 700;
@@ -913,8 +909,39 @@ input:invalid:placeholder-shown {
  
 }
 
+.contact-form-toaster {
+    min-width: 300px;
+    max-width: 325px;
+    background-color: #333;
+    color: #fff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    padding: 0 15px;
+    transition: transform .5s ease-out; 
+    transform: translateX(100%); 
+    position: fixed;
+    bottom: 50px;
+    right: 0;
+    z-index: 11;
+}
+.contact-form-toaster--slide-right {
+    transform: translateX(0); 
+}
+
+.contact-form-toaser__image {
+    max-width: 35%;
+    height: auto;
+}
 
 
+.contact-form-toaser__text {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 171%;
+    color: white;
+}
 
 /* contact form end  */
 
@@ -1066,7 +1093,6 @@ color: #353434;
     html {
         font-size: 62.5%;
     }
-    
 
     .header__title-container {
         margin: 0 0 30px 0;
@@ -1113,6 +1139,13 @@ color: #353434;
     .contact-button {
         min-width: 100%;
     }
+
+    .contact-form-toaster {
+        max-width: 250px;
+        min-width: 250px;
+        padding: 0 1px;
+    }
+
 
 }
 
@@ -1161,7 +1194,7 @@ color: #353434;
         padding-top: 50px;
     }
 
-    .contact-form-header {
+    .contact-form__header  {
         margin: 50px 0 15px 0;
     }
 
@@ -1230,7 +1263,7 @@ color: #353434;
         font-size: 2rem;
     }
 
-    .contact-form-header {
+    .contact-form__header  {
 
         font-size: 3rem;
     }
@@ -1258,20 +1291,24 @@ color: #353434;
         max-width: 300px;
     }
 
-
-    .contact-form {
-        padding-bottom: 45px;
-    }
-    .contact-form-header {
-        margin: 15px 0 15px 0;
-    }
-
     .new-good__image {
         max-width: 50%;
         clip-path: circle(47%);
         object-fit: contain;
     }
 
+    .contact-form {
+        padding-bottom: 45px;
+    }
+    .contact-form__header  {
+        margin: 15px 0 15px 0;
+    }
+
+    .contact-form-toaster {
+        max-width: 215px;
+        min-width: 215px;
+       
+    }
 }
 
 

@@ -24,12 +24,8 @@
        ]
     })
 
-
-
-   
-
 let filtered = false;
-let filterItems = $('.goods__filter-item');
+const filterItems = $('.goods__filter-item');
 
 const makeFiltered = (event, filterClass) => {
     const target = $(event.target);
@@ -63,6 +59,26 @@ $('#dry').on('click', (event) => makeFiltered(event, 'dry'));
 $('#discount').on('click', (event) => makeFiltered(event, 'discount'));
 $('#exotic').on('click', (event) => makeFiltered(event, 'exotic'));
 $('#healthy').on('click', (event) => makeFiltered(event, 'healthy'));
+
+const toaster = $('#contact-form-toaster');
+
+toaster.hide();
+
+$('#contact-form').submit((event) => {
+  event.preventDefault();
+  
+  toaster.fadeIn(1000).delay(1000).addClass('contact-form-toaster--slide-right');
+
+  setTimeout(() => {
+      toaster.removeClass('contact-form-toaster--slide-right');
+  }, 3999)
+
+  setTimeout(() => {
+    toaster.fadeOut(500)
+  }, 4000)
+
+  
+})
 
 })(jQuery);
 
