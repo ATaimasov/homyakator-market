@@ -24,6 +24,8 @@
        ]
     })
 
+
+  // filters script
 let filtered = false;
 const filterItems = $('.goods__filter-item');
 
@@ -32,6 +34,7 @@ const makeFiltered = (event, filterClass) => {
   
     if (target.hasClass("goods__filter-item--active")) {
       target.removeClass("goods__filter-item--active");
+      $('.slider').slick('goTo', 0);
       
       
       if (!target.hasClass("goods__filter-item--active")) {
@@ -42,6 +45,7 @@ const makeFiltered = (event, filterClass) => {
   
     filterItems.not(target).removeClass("goods__filter-item--active");
     target.addClass("goods__filter-item--active");
+    $('.slider').slick('goTo', 0);
   
     if (filtered) {
       $('.slider').slick('slickUnfilter');
@@ -60,13 +64,25 @@ $('#discount').on('click', (event) => makeFiltered(event, 'discount'));
 $('#exotic').on('click', (event) => makeFiltered(event, 'exotic'));
 $('#healthy').on('click', (event) => makeFiltered(event, 'healthy'));
 
-const toaster = $('#contact-form-toaster');
+// pressing shop button cancel active filters
+$('#shop-now-button').on('click', () => {
+  $('.slider').slick('goTo', 0);
+  $('.slider').slick('slickUnfilter');
+  filterItems.removeClass("goods__filter-item--active");
+})
 
+// toaster script
+const toaster = $('#contact-form-toaster');
 toaster.hide();
+
+
+
 
 $('#contact-form').submit((event) => {
   event.preventDefault();
   
+  $('#contact-button').prop('disabled', true);
+
   toaster.fadeIn(1000).delay(1000).addClass('contact-form-toaster--slide-right');
 
   setTimeout(() => {
@@ -76,9 +92,14 @@ $('#contact-form').submit((event) => {
   setTimeout(() => {
     toaster.fadeOut(500)
   }, 4000)
-
   
+  setTimeout(() => {
+    $('#contact-button').prop('disabled', false);
+  }, 5000)
+
+
 })
+
 
 })(jQuery);
 

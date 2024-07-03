@@ -25,6 +25,9 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="/img/favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Butterfly+Kids&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="/styles/style.css">
 </head>
@@ -37,18 +40,18 @@
             </div>
             <nav class="header__nav">
                 <ul class="header__list">
-                    <li class="header__item"><a href="" class="header__link">Goods</a></li>
-                    <li class="header__item"><a href="" class="header__link">Promotions</a></li>
-                    <li class="header__item"><a href="" class="header__link">New Products</a></li>
-                    <li class="header__item"><a href="" class="header__link">Revievs</a></li>
-                    <li class="header__item"><a href="" class="header__link">Contacts</a></li>
+                    <li class="header__item header__item--scaled"><a href="#buy" class="header__link header__link--highlighted">Goods</a></li>
+                    <li class="header__item header__item--scaled"><a href="#!" class="header__link header__link--highlighted">Promotions</a></li>
+                    <li class="header__item header__item--scaled"><a href="#new-goods" class="header__link header__link--highlighted">New Products</a></li>
+                    <li class="header__item header__item--scaled"><a href="#!" class="header__link header__link--highlighted">Revievs</a></li>
+                    <li class="header__item header__item--scaled"><a href="#contact-form" class="header__link header__link--highlighted">Contact us</a></li>
                 </ul>
             </nav>
             <div class="header__slogan-container">
                 <h3 class="header__slogan-item">Homa is good</h3>
                 <h3 class="header__slogan-item">Homa is life</h3>
             </div>
-            <div class="button header__button" role="button" tabindex="0">
+            <div class="button header__button" role="button" tabindex="0" id="shop-now-button">
                 <a href="#buy" class="header__button-link button--scale">shop now</a>
             </div>
             
@@ -106,10 +109,9 @@
                     <div class="slider-wrapper">
                         <div class="goods-cards slider">
                             <div class="goods-card exotic">
-                                <img src="/img/food/exotic/Тropical-Delight-transparent.png" alt="Тropical-Delight-transparent" class="goods-card__image non-transparent">
-
+                                <img src="/img/food/exotic/Тropical-Delight-transparent.png" alt="Тropical-Delight-transparent" class="goods-card__image goods-card--non-transparent">
                                 <figure class="goods-card__image-container">
-                                    <img src="/img/food/exotic/Тropical-Delight.png" alt="Тropical-Delight" class="goods-card__image transparent">
+                                    <img src="/img/food/exotic/Тropical-Delight.png" alt="Тropical-Delight" class="goods-card__image goods-card--transparent">
                                     <figcaption class="goods-card__image-title">Тropical Delight</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
@@ -371,69 +373,71 @@
                             </div>
                         </div>
                     </div>
-                
                 </div>
-                     
-                
-                
             </section>
-            <section class="new">
-                <div class="new__wrapper common-wrapper">
-                    <h4 class="new-header">
-                        What's Fresh
-                    </h4>
-                    <div class="new-goods-container">
-                            <figure class="new-good-container">
-                                <img src="/img/food/healthy/Cornucopia-Crunch.png" alt="Cornucopia-Crunch" class="new-good__image">
-                                <figcaption class="new-good__image-text">
-                                    <h5 class="new-good__image-title">
-                                        Cornucopia Crunch
-                                    </h5>
-                                    <p class="new-good__image-desc">
-                                        Try this dish filled with dried asparagus and corn. Get the satisfying goodness
-                                    </p>
-                                </figcaption>
-                            </figure>
-                            <figure class="new-good-container new-good-container-gray">
-                                <img src="/img/food/set/Hamster-Harvest.png" alt="Hamster Harvest" class="new-good__image">
-                                <figcaption class="new-good__image-text new-good__image-text-left">
-                                    <h5 class="new-good__image-title">
-                                        Hamster Harvest
-                                    </h5>
-                                    <p class="new-good__image-desc">
-                                       Try a bountiful and healthy selection of food.
-                                    </p>
-                                </figcaption>
-                            </figure>
-                            <figure class="new-good-container">
-                                <img src="/img/food/exotic/Paws-Crisps.png" alt="Paws & Crisps" class="new-good__image">
-                                <figcaption class="new-good__image-text">
-                                    <h5 class="new-good__image-title">
-                                        Paws & Crisps
-                                    </h5>
-                                    <p class="new-good__image-desc">
-                                        A crunchy, satisfying human snack.
-                                    </p>
-                                </figcaption>
-                            </figure>
+                <section class="new" id="new-goods">
+                    <div class="new__wrapper common-wrapper">
+                        <h4 class="new-header">
+                            What's Fresh
+                        </h4>
+                        <div class="new-goods-container">
+                                <figure class="new-good-container">
+                                    <img src="/img/food/healthy/Cornucopia-Crunch.png" alt="Cornucopia-Crunch" class="new-good__image">
+                                    <figcaption class="new-good__image-text">
+                                        <h5 class="new-good__image-title">
+                                            Cornucopia Crunch
+                                        </h5>
+                                        <p class="new-good__image-desc">
+                                            Try this dish filled with dried asparagus and corn. Get the satisfying goodness
+                                        </p>
+                                    </figcaption>
+                                </figure>
+                                <figure class="new-good-container new-good-container-gray">
+                                    <img src="/img/food/set/Hamster-Harvest.png" alt="Hamster Harvest" class="new-good__image">
+                                    <figcaption class="new-good__image-text new-good__image-text-left">
+                                        <h5 class="new-good__image-title">
+                                            Hamster Harvest
+                                        </h5>
+                                        <p class="new-good__image-desc">
+                                        Try a bountiful and healthy selection of food.
+                                        </p>
+                                    </figcaption>
+                                </figure>
+                                <figure class="new-good-container">
+                                    <img src="/img/food/exotic/Paws-Crisps.png" alt="Paws & Crisps" class="new-good__image">
+                                    <figcaption class="new-good__image-text">
+                                        <h5 class="new-good__image-title">
+                                            Paws & Crisps
+                                        </h5>
+                                        <p class="new-good__image-desc">
+                                            A crunchy, satisfying human snack.
+                                        </p>
+                                        <div class="try-new-good-container">
+                                            <p class="try-new-good__text try-new-good__text--highlighted">
+                                                try
+                                            </p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                        </div>
                     </div>
-                </div>
-            </section>
-            <section class="contact-form" id="contact-form">
-                <div class="contact-form__wrapper common-wrapper flex-wrapper">
-                    <h4 class="contact-form__header">Contact form</h4>
-                    <p class="contact-form__text">Would you like to contact us? Just leave your contacts below and we will get back to you as soon as possible.</p>
-                    <form class="contact-form-inputs-container" method="post">
-                        <input type="text" placeholder="First name" class="input" inputmode="text" name="first-name">
-                            <input type="email" placeholder="Email adress" class="input" inputmode="email" name="email" required autocomplete>
-                        <button class="contact-button" type="submit"><p class="contact-button__text">Send</p></button>
-                    </form>
-                </div>
-                <div class="contact-form-toaster" id="contact-form-toaster">
-                    <img src="/img/contact-form-toaser__image.png" alt="contact form hamster image" class="contact-form-toaser__image">
-                    <p class="contact-form-toaser__text"> We will contact you soon!</p>
-                </div>
-            </section>
+                  
+                </section>
+                <section class="contact-form" id="contact-form">
+                    <div class="contact-form__wrapper common-wrapper flex-wrapper">
+                        <h4 class="contact-form__header">Contact form</h4>
+                        <p class="contact-form__text">Would you like to contact us? Just leave your contacts below and we will get back to you as soon as possible.</p>
+                        <form class="contact-form__inputs-container" method="post">
+                            <input type="text" placeholder="First name" class="contact-form-input" inputmode="text" name="first-name">
+                                <input type="email" placeholder="Email adress" class="contact-form-input" inputmode="email" name="email" required autocomplete>
+                            <button class="contact-button" type="submit" id="contact-button"><p class="contact-button__text">Send</p></button>
+                        </form>
+                    </div>
+                    <div class="contact-form-toaster" id="contact-form-toaster">
+                        <img src="/img/contact-form-toaser__image.png" alt="contact form hamster image" class="contact-form-toaser__image">
+                        <p class="contact-form-toaser__text"> We will contact you soon!</p>
+                    </div>
+                </section>
     </main>
     <footer class="footer">
         <div class="common-wrapper footer-container">
@@ -441,23 +445,21 @@
                 <img src="/img/footer-company.png" alt="company-image" class="footer__image">
             </div>
             <div class="footer-info">
-                <div class="footer__menu-container-both">
                     <ul class="footer__menu">
                         <li class="footer__menu-item"><h5 class="footer__menu-title">Shop</h5></li>
-                        <li class="footer__menu-item"><a href="" class="footer__menu-link">Shop Exotic food</a></li>
-                        <li class="footer__menu-item"><a href="" class="footer__menu-link">Shop Healthy food</a></li>
+                        <li class="footer__menu-item"><a href="#buy" class="footer__menu-link">Shop Exotic food</a></li>
+                        <li class="footer__menu-item"><a href="#buy" class="footer__menu-link">Shop Healthy food</a></li>
                     </ul>
                     <ul class="footer__menu">
                         <li class="footer__menu-item"><h5 class="footer__menu-title">About</h5></li>
-                        <li class="footer__menu-item"><a href="" class="footer__menu-link">About Homyakator Market</a></li>
-                        <li class="footer__menu-item"><a href="" class="footer__menu-link">The Homa Life</a></li>
+                        <li class="footer__menu-item"><a href="#about-us" class="footer__menu-link">About Homyakator Market</a></li>
+                        <li class="footer__menu-item"><a href="#!" class="footer__menu-link">The Homa Life</a></li>
                     </ul>
-                </div>
                 <ul class="footer__menu">
                     <li class="footer__menu-item"><h5 class="footer__menu-title">Support</h5></li>
-                    <li class="footer__menu-item"><a href="" class="footer__menu-link">Contact Us</a></li>
-                    <li class="footer__menu-item"><a href="" class="footer__menu-link">Terms of Service</a></li>
-                    <li class="footer__menu-item"><a href="" class="footer__menu-link">Privacy Policy</a></li>
+                    <li class="footer__menu-item"><a href="#contact-form" class="footer__menu-link">Contact Us</a></li>
+                    <li class="footer__menu-item"><a href="#!" class="footer__menu-link">Terms of Service</a></li>
+                    <li class="footer__menu-item"><a href="#!" class="footer__menu-link">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>
