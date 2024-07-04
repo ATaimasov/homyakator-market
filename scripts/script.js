@@ -11,6 +11,7 @@
        easing: "ease-in",
        dots: true, 
        infinite: false,
+       waitForAnimate: false,
        responsive:[
         {
           breakpoint: 1250,

@@ -698,9 +698,9 @@ background: linear-gradient(45deg, rgb(207, 210, 189), rgb(212, 215, 194), rgb(2
     position: relative;
 }
 
-.goods-card--transparent:hover {
+/* .goods-card--transparent:hover {
     opacity: .2;
-}
+} */
 
 
 
