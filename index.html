@@ -41,9 +41,9 @@
             <nav class="header__nav">
                 <ul class="header__list">
                     <li class="header__item header__item--scaled"><a href="#buy" class="header__link header__link--highlighted">Goods</a></li>
-                    <li class="header__item header__item--scaled"><a href="#!" class="header__link header__link--highlighted">Promotions</a></li>
-                    <li class="header__item header__item--scaled"><a href="#new-goods" class="header__link header__link--highlighted">New Products</a></li>
-                    <li class="header__item header__item--scaled"><a href="#!" class="header__link header__link--highlighted">Revievs</a></li>
+                    <li class="header__item header__item--scaled"><a href="#new-goods" class="header__link header__link--highlighted">New Products</a> </li>
+                    <li class="header__item header__item--scaled"><a href="/technical_work/technical work.html" class="header__link header__link--highlighted">Promotions</a></li>
+                    <li class="header__item header__item--scaled"><a href="/technical_work/technical work.html" class="header__link header__link--highlighted"> Revievs</a></li>
                     <li class="header__item header__item--scaled"><a href="#contact-form" class="header__link header__link--highlighted">Contact us</a></li>
                 </ul>
             </nav>
@@ -52,14 +52,14 @@
                 <h3 class="header__slogan-item">Homa is life</h3>
             </div>
             <div class="button header__button" role="button" tabindex="0" id="shop-now-button">
-                <a href="#buy" class="header__button-link button--scale">shop now</a>
+                <a href="#buy" class="header__button-link button--scaled">shop now</a>
             </div>
             
             
         </div>
     </header>
     <main class="main">
-            <section class="about-us">
+            <section class="about-us" id="about-us">
                         <h4 class="about-us__header">
                             Why choose us?
                         </h4>
@@ -71,7 +71,7 @@
                                 <p class="about-us__item-text">Our food is rich in vitamins and minerals that are essential for your health and longevity.</p>
                             </div>
                         </div>
-                        <div class="about-us__item">
+                        <div class="about-us__item" >
                                 <img src="/img/wide-offer.jpeg" alt="wide-offer" class="about-us__image">
                             <div class="about-us__title-container">
                                 <h3 class="about-us__item-title">Wide offer</h3>
@@ -90,7 +90,7 @@
                     </div>
             </section>
             <section class="goods" id="buy">
-                        <h4 class="goods__header">Сhoose your food</h4>
+                        <h4 class="goods__header" id="goods__header">Сhoose your food</h4>
                 <div class="goods__wrapper common-wrapper">
                     
                     <ul class="goods__filter-list">
@@ -243,25 +243,25 @@
                                     <picture>
                                         <source
                                         type="image/avif"
-                                        srcset="/img/food/grains/Сorn/Сorn-400w.avif, /img/food/grains/Corn/Corn-800w.avif 2x" 
+                                        srcset="/img/food/grains/Corn/Corn-400w.avif, /img/food/grains/Corn/Corn-800w.avif 2x" 
                                         media="(max-width:500px)"
                                         >
                                         <source 
                                         type="image/avif"
-                                        srcset="/img/food/grains/Сorn/Сorn-1000w.avif"
+                                        srcset="/img/food/grains/Corn/Corn-1000w.avif"
                                         media="(min-width:501px)"
                                         >
                                         <source 
                                         type="image/webp"
-                                        srcset="/img/food/grains/Сorn/Сorn-400w.webp, /img/food/grains/Сorn/Сorn-800w.webp 2x" 
+                                        srcset="/img/food/grains/Corn/Corn-400w.webp, /img/food/grains/Corn/Corn-800w.webp 2x" 
                                         media="(max-width:500px)"
                                         >
                                         <source 
                                         type="image/webp"
-                                        srcset="/img/food/grains/Сorn/Сorn-1000w.webp" 
+                                        srcset="/img/food/grains/Corn/Corn-1000w.webp" 
                                         media="(min-width:501px)"
                                         >
-                                        <img src="/img/food/grains/Сorn/Сorn.jpeg" alt="Corn" class="goods-card__image" loading="lazy">
+                                        <img src="/img/food/grains/Corn/Corn.jpeg" alt="Corn" class="goods-card__image" loading="lazy">
                                     </picture>
                                     <figcaption class="goods-card__image-title">Corn</figcaption>
                                 </figure>
@@ -295,7 +295,6 @@
                                         >
                                         <img src="/img/food/dry/Golden-Crunchies/Golden-Crunchies.png" alt="Golden Crunchies" class="goods-card__image" loading="lazy">
                                     </picture>
-                                    
                                     <figcaption class="goods-card__image-title">Golden Crunchies</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
@@ -393,11 +392,11 @@
                                         >
                                         <img src="/img/food/healthy/Cornucopia-Crunch/Cornucopia-Crunch.png" alt="Cornucopia-Crunch" class="goods-card__image" loading="lazy">
                                     </picture>
-                                    <figcaption class="goods-card__image-title">Cornucopia Crunch</figcaption>
+                                    <figcaption class="goods-card__image-title" >Cornucopia Crunch</figcaption>
                                 </figure>
                                 <!-- a horn of plenty, filled with crunchy, tasty treats. -->
                                 <div class="goods-card__info ">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" id="cornucopia-crunch-bag">Add to bag</p>
                                     <p class="goods-card__info-price">5$ per 100 gram</p>
                                 </div>
                             </div>
@@ -424,7 +423,7 @@
                                         srcset="/img/food/dry/Nuttier-Nibbles/Nuttier-Nibbles-1000w.webp" 
                                         media="(min-width:501px)"
                                         >
-                                        <img src="/img/food/dry/Nuttier-Nibbles/Nuttier-Nibbles.png" alt="Nuttier Nibbles" class="goods-card__image">
+                                        <img src="/img/food/dry/Nuttier-Nibbles/Nuttier-Nibbles.png" alt="Nuttier Nibbles" class="goods-card__image" loading="lazy">
                                     </picture>
                                     
                                     <figcaption class="goods-card__image-title">Nuttier Nibbles</figcaption>
@@ -457,7 +456,7 @@
                                         srcset="/img/food/mixs/Nutty-Delight-Box/Nutty-Delight-Box-1000w.webp" 
                                         media="(min-width:501px)"
                                         >
-                                        <img src="/img/food/mixs/Nutty-Delight-Box/Nutty-Delight-Box.jpeg" alt="Nutty Delight Box" class="goods-card__image">
+                                        <img src="/img/food/mixs/Nutty-Delight-Box/Nutty-Delight-Box.jpeg" alt="Nutty Delight Box" class="goods-card__image" loading="lazy">
                                     </picture>
                                     <figcaption class="goods-card__image-title">Nutty Delight Box</figcaption>
                                 </figure>
@@ -556,7 +555,7 @@
                                         srcset="/img/food/healthy/Jolly-Jungle-Joys/Jolly-Jungle-Joys-1000w.webp" 
                                         media="(min-width:501px)"
                                         >
-                                        <img src="/img/food/healthy/Jolly-Jungle-Joys/Jolly-Jungle-Joys.png" alt="Jolly Jungle Joys" class="goods-card__image">
+                                        <img src="/img/food/healthy/Jolly-Jungle-Joys/Jolly-Jungle-Joys.png" alt="Jolly Jungle Joys" class="goods-card__image" loading="lazy">
                                     </picture>
                                     <figcaption class="goods-card__image-title">Jolly Jungle Joys</figcaption>
                                 </figure>
@@ -588,12 +587,12 @@
                                         srcset="/img/food/set/Hamster-Harvest/Hamster-Harvest-1000w.webp" 
                                         media="(min-width:501px)"
                                         >
-                                        <img src="/img/food/set/Hamster-Harvest/Hamster-Harvest.png" alt="Hamster Harvest" class="goods-card__image" loading="lazy">
+                                        <img src="/img/food/set/Hamster-Harvest/Hamster-Harvest.png" alt="Hamster Harvest" class="goods-card__image" loading="lazy" >
                                     </picture>
-                                    <figcaption class="goods-card__image-title">Hamster Harvest</figcaption>
+                                    <figcaption class="goods-card__image-title" >Hamster Harvest</figcaption>
                                 </figure>
                                 <div class="goods-card__info ">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" id="hamster-harvest-bag">Add to bag</p>
                                     <p class="goods-card__info-price">5$ per 100 gram</p>
                                 </div>
                             </div>
@@ -620,7 +619,7 @@
                                         srcset="/img/food/mixs/Hamster's-Nutty-Vault/Hamster's-Nutty-Vault-1000w.webp" 
                                         media="(min-width:501px)"
                                         >
-                                        <img src="/img/food/mixs/Hamster's-Nutty-Vault/Hamster's-Nutty-Vault.png" alt="Hamster's Nutty Vault" class="goods-card__image">
+                                        <img src="/img/food/mixs/Hamster's-Nutty-Vault/Hamster's-Nutty-Vault.png" alt="Hamster's Nutty Vault" class="goods-card__image" loading="lazy">
                                     </picture>
                                     <figcaption class="goods-card__image-title">Hamster's Nutty Vault</figcaption>
                                 </figure>
@@ -690,7 +689,7 @@
                                     <figcaption class="goods-card__image-title">Paws & Crisps</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" id="Paws-Crips-bag">Add to bag</p>
                                     <p class="goods-card__info-price">5$ per 100 gram</p>
                                 </div>
                             </div>
@@ -751,7 +750,6 @@
                                         >
                                         <img src="/img/food/dry/Crunchy-Meadow/Crunchy-Meadow.png" alt="Crunchy Meadow" class="goods-card__image" loading="lazy">
                                     </picture>
-                                    
                                     <figcaption class="goods-card__image-title">Crunchy Meadow</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
@@ -847,7 +845,7 @@
                                         srcset="/img/food/set/Tiny-Treat-Trove/Tiny-Treat-Trove-1000w.webp" 
                                         media="(min-width:501px)"
                                         >
-                                        <img src="/img/food/set/Tiny-Treat-Trove/Tiny-Treat-Trove.png" alt="Tiny Treat Trove" class="goods-card__image">
+                                        <img src="/img/food/set/Tiny-Treat-Trove/Tiny-Treat-Trove.png" alt="Tiny Treat Trove" class="goods-card__image" loading="lazy">
                                     </picture>
                                     <figcaption class="goods-card__image-title">Tiny Treat Trove</figcaption>
                                     <!-- a treasure trove of tasty treats for you -->
@@ -940,6 +938,9 @@
                                         <p class="new-good__image-desc">
                                             Try this dish filled with dried asparagus and corn. Get the satisfying goodness
                                         </p>
+                                            <a href="#goods__header" class="try-new-good__link try-new-good__link--highlighted" id="try-cornucopia-crunch">
+                                                try
+                                            </a>
                                     </figcaption>
                                 </figure>
                                 <figure class="new-good-container new-good-container-gray">
@@ -951,6 +952,9 @@
                                         <p class="new-good__image-desc">
                                         Try a bountiful and healthy selection of food.
                                         </p>
+                                            <a href="#goods__header" class="try-new-good__link try-new-good__link--highlighted" id="try-hamster-harvest">
+                                                try
+                                            </a>
                                     </figcaption>
                                 </figure>
                                 <figure class="new-good-container">
@@ -962,11 +966,9 @@
                                         <p class="new-good__image-desc">
                                             A crunchy, satisfying human snack.
                                         </p>
-                                        <div class="try-new-good-container">
-                                            <p class="try-new-good__text try-new-good__text--highlighted">
+                                            <a href="#goods__header" class="try-new-good__link try-new-good__link--highlighted" id="try-paws-crisps">
                                                 try
-                                            </p>
-                                        </div>
+                                            </a>
                                     </figcaption>
                                 </figure>
                         </div>
@@ -975,12 +977,18 @@
                 </section>
                 <section class="contact-form" id="contact-form">
                     <div class="contact-form__wrapper common-wrapper flex-wrapper">
-                        <h4 class="contact-form__header">Contact form</h4>
+                        <h4 class="contact-form__header" id="contact-header">Contact form</h4>
                         <p class="contact-form__text">Would you like to contact us? Just leave your contacts below and we will get back to you as soon as possible.</p>
                         <form class="contact-form__inputs-container" method="post">
-                            <input type="text" placeholder="First name" class="contact-form-input" inputmode="text" name="first-name">
+                            <div class="contact-form__input-container">
+                                <input type="text" placeholder="First name" class="contact-form-input" inputmode="text" name="first-name">
                                 <input type="email" placeholder="Email adress" class="contact-form-input" inputmode="email" name="email" required autocomplete="on">
-                            <button class="contact-button" type="submit" id="contact-button"><p class="contact-button__text">Send</p></button>
+                                <button class="contact-button" type="submit" id="contact-button"><p class="contact-button__text">Send</p></button>
+                            </div>
+                            <div class="contact-form__input-container">
+                                <input type="checkbox" id="policy" required class="contact-form__input__checkbox">
+                                <label for="policy" class="contact-form__input__checkbox-text">I Accept the <a href="#!" class="contact-form__policy-link contact-form__polity-link--highlighted">Terms and Conditions</a></label>
+                            </div>
                         </form>
                     </div>
                     <div class="contact-form-toaster" id="contact-form-toaster">
@@ -992,24 +1000,24 @@
     <footer class="footer">
         <div class="common-wrapper footer-container">
             <div class="footer__image-container">
-                <img src="/img/footer-company.png" alt="company-image" class="footer__image">
+                <img src="/img/footer-company.png" alt="company-image" class="footer__image" loading="lazy">
             </div>
             <div class="footer-info">
                     <ul class="footer__menu">
                         <li class="footer__menu-item"><h5 class="footer__menu-title">Shop</h5></li>
-                        <li class="footer__menu-item"><a href="#buy" class="footer__menu-link">Shop Exotic food</a></li>
-                        <li class="footer__menu-item"><a href="#buy" class="footer__menu-link">Shop Healthy food</a></li>
+                        <li class="footer__menu-item"><a href="#buy" class="footer__menu-link" id="shop-exotic">Shop Exotic food</a></li>
+                        <li class="footer__menu-item"><a href="#buy" class="footer__menu-link" id="shop-healthy">Shop Healthy food</a></li>
                     </ul>
                     <ul class="footer__menu">
                         <li class="footer__menu-item"><h5 class="footer__menu-title">About</h5></li>
                         <li class="footer__menu-item"><a href="#about-us" class="footer__menu-link">About Homyakator Market</a></li>
-                        <li class="footer__menu-item"><a href="#!" class="footer__menu-link">The Homa Life</a></li>
+                        <li class="footer__menu-item"><a href="/technical_work/technical work.html" class="footer__menu-link">The Homa Life</a></li>
                     </ul>
                 <ul class="footer__menu">
                     <li class="footer__menu-item"><h5 class="footer__menu-title">Support</h5></li>
-                    <li class="footer__menu-item"><a href="#contact-form" class="footer__menu-link">Contact Us</a></li>
-                    <li class="footer__menu-item"><a href="#!" class="footer__menu-link">Terms of Service</a></li>
-                    <li class="footer__menu-item"><a href="#!" class="footer__menu-link">Privacy Policy</a></li>
+                    <li class="footer__menu-item"><a href="#contact-form" class="footer__menu-link" id="contact-link">Contact Us</a></li>
+                    <li class="footer__menu-item"><a href="/technical_work/technical work.html" class="footer__menu-link">Terms of Service</a></li>
+                    <li class="footer__menu-item"><a href="/technical_work/technical work.html" class="footer__menu-link">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>
