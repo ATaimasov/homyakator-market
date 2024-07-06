@@ -1,5 +1,32 @@
 ;(function ($, undefined) {
-    $('.slider').slick( {
+
+// fixed nav script
+
+const nav = $('#navigation');
+
+let navigationHeight = $('.about-us').outerHeight(true);
+
+$(window).scroll( () => {
+
+if ($(window).scrollTop() > navigationHeight) {
+  nav.addClass('header__nav--fixed')
+  $('.header__slogan-container').addClass('script--margin')
+  console.log(1)
+} else {
+  nav.removeClass('header__nav--fixed');
+  $('.header__slogan-container').removeClass('script--margin')
+}
+
+// просто прилепить дополнительный nav с теми же ссылками 
+
+})
+
+
+//carousel script
+
+  const slider = $('#slider');
+
+    slider.slick( {
         slidesToShow: 3,
         slidesToScroll: 3,
         autoplay: false,
@@ -26,7 +53,7 @@
     })
 
   // filters script
-const slider = $('.slider');
+
 const filterItems = $('.goods__filter-item');
 let filtered = false;
 
@@ -72,23 +99,37 @@ $('#shop-now-button').on('click', () => {
   filterItems.removeClass("goods__filter-item--active");
 });
 
-// try-new script
+// scroll scripts
+
+const MakeHighlighted = (highlightedTarget) => {
+  slider.slick('slickUnfilter');
+  filterItems.removeClass("goods__filter-item--active");
+
+  $(highlightedTarget).trigger('click');
+
+  if (!$(highlightedTarget).hasClass('goods-card__info-bag--script-highlighted')) {
+  $(highlightedTarget).addClass('goods-card__info-bag--script-highlighted');
+  setTimeout( () => {
+  $(highlightedTarget).removeClass('goods-card__info-bag--script-highlighted');
+  }, 3000)
+  }
+}
 
 $('#try-cornucopia-crunch').click(() => {
+  MakeHighlighted('#cornucopia-crunch-bag');
   slider.slick('goTo', 8);
-  MakeHighlighted('#cornucopia-crunch-bag')
 }
 );
 
 $('#try-hamster-harvest').click(() => {
-  slider.slick('goTo', 14);
   MakeHighlighted('#hamster-harvest-bag');
+  slider.slick('goTo', 14);
 }
 );
 
 $('#try-paws-crisps').click(() => {
-  slider.slick('goTo', 17);
   MakeHighlighted('#Paws-Crips-bag');
+  slider.slick('goTo', 17);
 }
 );
 
@@ -104,15 +145,17 @@ $('#contact-link').click(()=> {
   MakeHighlighted('#contact-header');
 })
 
-const MakeHighlighted = (GoodTitle) => {
-  if (!$(GoodTitle).hasClass('goods-card__info-bag--script-highlighted')) {
-  $(GoodTitle).addClass('goods-card__info-bag--script-highlighted');
-  setTimeout( () => {
-  $(GoodTitle).removeClass('goods-card__info-bag--script-highlighted');
-  }, 3000)
-  }
-}
+// filter interaction with enter keyboard script
 
+$(document).on('keydown', (key) => {
+  if (key.which === 13) {
+    const focusedElement = document.activeElement;
+    console.log(focusedElement)
+    if ($(focusedElement).hasClass('goods__filter-item')) {
+      $(focusedElement).trigger('click');
+    }
+  }
+})
 
 // toaster script
 const toaster = $('#contact-form-toaster');
@@ -139,24 +182,9 @@ $('#contact-form').submit((event) => {
 
 })
 
-// not work
-// const ScrollToGoods = (filterClass, filterIDs) => {
-//   const filterID = $(`${filterIDs}`);
-//   const filterClasses = $(`${filterClass}`);
-
-//   $('.slider').slick('slickUnfilter');
-//   $('.slider').slick(`slickFilter`, filterClasses);
-//   $('.slider').slick('goTo', 0);
-
-//   filterItems.not(filterID).removeClass("goods__filter-item--active");
-//   filterID.addClass("goods__filter-item--active");
-// };
-
-// $('#shop-exotic').on('click', () => ScrollToGoods ('.exotic', '#exotic'));
-// $('#shop-healthy').on('click', () => ScrollToGoods ('.healthy', '#healthy'));
-// $('#try-hamster-harvest').on('click', () => ScrollToGoods ('.new', '#new'));
-// $('#try-cornucopia-crunch').on('click', () => ScrollToGoods ('.new', '#new'));
-// $('#try-paws-crisps').on('click', () => ScrollToGoods ('.new', '#new'));
+$('#contact-header').click(() => {
+  $('#contact-form-first-name').trigger('focus');
+})
 
 })(jQuery);
 
