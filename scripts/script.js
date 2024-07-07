@@ -1,23 +1,79 @@
 ;(function ($, undefined) {
 
+
+// throttle script
+
+function throttle (func, timeout) {
+  let timer = null;
+  return function perform(...args) {
+    if (timer) return
+
+    timer = setTimeout( () => {
+      func(...args);
+      clearTimeout(timer);
+      timer = null;
+    }, timeout)
+  }
+}
+
 // fixed nav script
 
 const nav = $('#navigation');
 
-let navigationHeight = $('.about-us').outerHeight(true);
+let tempScrollTop = $(window).scrollTop();
 
-$(window).scroll( () => {
+function fixedNavigation () {
+    console.log(1)
+    let currentScrollTop = $(window).scrollTop();
+    if (currentScrollTop > nav.height()) {
+      nav.addClass('navigation-wrapper--fixed');
+      if ( tempScrollTop > currentScrollTop ) {
+        nav.addClass('navigation-wrapper--slided');
+      } else {
+      nav.removeClass('navigation-wrapper--slided');
+      }
+    } else {
+      nav.removeClass('navigation-wrapper--fixed');
+      nav.removeClass('navigation-wrapper--slided');
+    }
+    tempScrollTop = currentScrollTop;
+    };
 
-if ($(window).scrollTop() > navigationHeight) {
-  nav.addClass('header__nav--fixed')
-  $('.header__slogan-container').addClass('script--margin')
-  console.log(1)
-} else {
-  nav.removeClass('header__nav--fixed');
-  $('.header__slogan-container').removeClass('script--margin')
+let throttledfixedNavigation = throttle(fixedNavigation, 200);
+$(window).scroll(throttledfixedNavigation);
+
+// burger-menu
+
+
+
+
+function resizeBurgerMenu () {
+  if (window.innerWidth <= 767) {
+    $('#nav-list').addClass('hidden');
+    nav.css('justify-content', 'flex-end');
+  } else {
+    $('#nav-list').removeClass('hidden');
+    nav.css('justify-content', 'center');
+  }
 }
 
-// просто прилепить дополнительный nav с теми же ссылками 
+resizeBurgerMenu();
+
+let throttledMakeBurgerMenu = throttle(resizeBurgerMenu, 250);
+
+
+$(window).on('resize', throttledMakeBurgerMenu);
+
+let burgers = $('.burger-line');
+
+$('#burger-menu').on('click', () => {
+    burgers.each (() => {
+      if (!burgers.hasClass('burger-line--opened')) {
+        burgers.addClass('burger-line--opened');
+      } else {
+        burgers.removeClass('burger-line--opened');
+      }
+    });
 
 })
 
