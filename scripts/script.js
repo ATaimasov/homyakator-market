@@ -19,64 +19,67 @@ function throttle (func, timeout) {
 // fixed nav script
 
 const nav = $('#navigation');
-
 let tempScrollTop = $(window).scrollTop();
+let isMenuOpen = false;
 
 function fixedNavigation () {
-    console.log(1)
-    let currentScrollTop = $(window).scrollTop();
-    if (currentScrollTop > nav.height()) {
-      nav.addClass('navigation-wrapper--fixed');
-      if ( tempScrollTop > currentScrollTop ) {
-        nav.addClass('navigation-wrapper--slided');
-      } else {
-      nav.removeClass('navigation-wrapper--slided');
-      }
-    } else {
-      nav.removeClass('navigation-wrapper--fixed');
-      nav.removeClass('navigation-wrapper--slided');
-    }
-    tempScrollTop = currentScrollTop;
-    };
 
-let throttledfixedNavigation = throttle(fixedNavigation, 200);
-$(window).scroll(throttledfixedNavigation);
+  if (isMenuOpen) return; 
+
+  let currentScrollTop = $(window).scrollTop();
+  if (currentScrollTop > nav.height()) {
+    nav.addClass('navigation-wrapper--fixed');
+    if ( tempScrollTop > currentScrollTop ) {
+      nav.addClass('navigation-wrapper--slided');
+    } else {
+    nav.removeClass('navigation-wrapper--slided');
+    }
+  } else {
+    nav.removeClass('navigation-wrapper--fixed');
+    nav.removeClass('navigation-wrapper--slided');
+  }
+  tempScrollTop = currentScrollTop;
+  };
+
+  let throttledfixedNavigation = throttle(fixedNavigation, 200);
+  $(window).scroll(throttledfixedNavigation);
+
 
 // burger-menu
-
-
-
-
-function resizeBurgerMenu () {
-  if (window.innerWidth <= 767) {
-    $('#nav-list').addClass('hidden');
-    nav.css('justify-content', 'flex-end');
-  } else {
-    $('#nav-list').removeClass('hidden');
-    nav.css('justify-content', 'center');
-  }
-}
-
-resizeBurgerMenu();
-
-let throttledMakeBurgerMenu = throttle(resizeBurgerMenu, 250);
-
-
-$(window).on('resize', throttledMakeBurgerMenu);
-
-let burgers = $('.burger-line');
+const burgers = $('.burger-line');
 
 $('#burger-menu').on('click', () => {
-    burgers.each (() => {
-      if (!burgers.hasClass('burger-line--opened')) {
-        burgers.addClass('burger-line--opened');
-      } else {
-        burgers.removeClass('burger-line--opened');
-      }
-    });
 
+  isMenuOpen = !isMenuOpen; 
+
+  if (isMenuOpen) {
+    $('#header-list').addClass('header-list--burger-open');
+    $('#nav-list').removeClass('header-nav--hidden');
+    $('body').css('overflow', 'hidden');
+  } else {
+    $('#header-list').removeClass('header-list--burger-open');
+    $('#nav-list').addClass('header-nav--hidden');
+    $('body').css('overflow', 'auto'); 
+  }
+
+burgers.each (() => {
+  if (isMenuOpen) {
+    burgers.addClass('burger-line--opened');
+  } else {
+    burgers.removeClass('burger-line--opened');
+  }
 })
 
+$('.header__link-inner-link').on('click', () => {
+  if (isMenuOpen) {
+    $('#header-list').removeClass('header-list--burger-open');
+    $('#nav-list').addClass('header-nav--hidden');
+    $('body').css('overflow', 'auto'); 
+    burgers.removeClass('burger-line--opened');
+    isMenuOpen = !isMenuOpen;
+  }
+}); 
+})
 
 //carousel script
 
@@ -206,12 +209,36 @@ $('#contact-link').click(()=> {
 $(document).on('keydown', (key) => {
   if (key.which === 13) {
     const focusedElement = document.activeElement;
-    console.log(focusedElement)
+    console.log(focusedElement);
     if ($(focusedElement).hasClass('goods__filter-item')) {
       $(focusedElement).trigger('click');
     }
   }
 })
+
+// product interaction with tab keyboard script
+
+$('.slick-active').on('focus', () => {
+  $('.goods-card__info-bag').find().trigger('focus');
+  console.log(1)
+})
+
+
+// когда проходит все активные слайдеры то срабатывает триггер на переключение слайда, а переключение из кнопок которые перебираются из массива
+
+// $('.goods-card').on('focus', () => {
+//  $('.goods-card__info-bag').trigger('focus');
+// });
+
+// $(document).on('keydown', (key) => {
+
+//   if (key.which === 9) {
+//     const focusedElement = document.activeElement;
+//     if ($(focusedElement).hasClass('goods-card')) {
+
+//     }
+// }
+// });
 
 // toaster script
 const toaster = $('#contact-form-toaster');
