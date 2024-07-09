@@ -401,6 +401,14 @@ html {
 }
 
 
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
 /* common styles end  */
 
 /* header styles start  */
@@ -450,7 +458,18 @@ html {
 
 .header__cart-image-container {
     flex: 0 0 40px;
+    
+    position: relative;
+}
+
+.header__cart-image {
     transform: scaleX(-1);
+}
+
+.header__cart-bag-conter {
+    position: absolute;
+    inset: 30% 30%;
+    font-size: 14px;
 }
 
 
@@ -769,6 +788,48 @@ animation-delay: .5s;
 
 }
 
+.bag-counter-container {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    max-height: 30px;
+    min-width: 142px;
+    display: none;
+    
+}
+
+.bag-counter {
+    font-size: 40px;
+}
+
+.bag-counter__minus {
+    padding-bottom: 5px;
+}
+
+.bag-counter__plus {
+    vertical-align: sub;
+}
+
+.bag-counter__count {
+    border: none;
+    border-bottom: 1px #404040 solid;
+    background: transparent;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.add-to-bag {
+    
+        font-weight: 400;
+        font-size: 1.2rem;
+        line-height: 150%;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #343434;
+        margin-right: 17px;
+        cursor: cell;
+    
+}
 
 /* images animation */
 
@@ -825,6 +886,11 @@ animation-delay: .5s;
 }
 
 .goods-card__info-bag--highlighted:is(:hover, :active, :focus) {
+    border-bottom: 1.5px solid #222222;
+    color: #222222;
+}
+
+.slick-active:is(:hover, :active, :focus) .goods-card__info .goods-card__info-bag--highlighted {
     border-bottom: 1.5px solid #222222;
     color: #222222;
 }
@@ -1641,6 +1707,7 @@ color: #353434;
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
+    position: relative;
 }
 
 .slick-dots li {
@@ -1661,6 +1728,8 @@ color: #353434;
 .slick-dots .slick-active button {
     opacity: 1;
 }
+
+
 
 
 

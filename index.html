@@ -50,7 +50,7 @@
                     <div class="burger-line"></div>
                     <div class="burger-line"></div>
                 </div>
-                <div class="header__cart-image-container"><img src="/img/shopping-cart.png" alt="shopping cart" class="header__cart-image"></div>
+                <div class="header__cart-image-container"><span class="header__cart-bag-conter" data-bag-counter="0" id="header__cart-count">0</span><img src="/img/shopping-cart.png" alt="shopping cart" class="header__cart-image"></div>
             </div>
             <div class="header__title-container">
                 <h1 class="header__title">H o m y a k a t o r </h1>
@@ -60,7 +60,7 @@
                 <h3 class="header__slogan-item">Homa is good</h3>
                 <h3 class="header__slogan-item" id="homa-is-life">Homa is life</h3>
             </div>
-            <div class="button header__button" role="button" tabindex="0" id="shop-now-button">
+            <div class="button header__button" role="button"  id="shop-now-button">
                 <a href="#buy" class="header__button-link button--scaled">shop now</a>
             </div>
         </div>
@@ -205,7 +205,13 @@
                                     <figcaption class="goods-card__image-title">Тropical Delight</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >
+                                        <div class="bag-counter-container">
+                                            <span class="bag-counter bag-counter__minus" id="bag-counter__minus">-</span> 
+                                            <input type="number" class="bag-counter__count" min="0" max="100" value="0" id="bag-counter__count">
+                                            <span class="bag-counter  bag-counter__plus" id="bag-counter__plus">+</span>
+                                        </div>
+                                        <span class="add-to-bag">Add to bag</span></p>
                                     <p class="goods-card__info-price">6$ per 100 gram</p>
                                 </div>
                             </article>
@@ -237,7 +243,11 @@
                                     <figcaption class="goods-card__image-title">Nutty Mosaic Box</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >
+                                        <div class="bag-counter-container">
+                                                <span class="bag-counter bag-counter__minus" >-</span> <input type="number" class="bag-counter__count" min="0" max="100" value="0" ><span class="bag-counter  bag-counter__plus">+</span>
+                                        </div>
+                                        <span class="add-to-bag">Add to bag</span></p>
                                     <p class="goods-card__info-price">5$ per 100 gram</p>
                                 </div>
                             </article>
@@ -269,7 +279,7 @@
                                     <figcaption class="goods-card__image-title">Barley</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">3$ per 100 gram</p>
                                 </div>
                             </article>
@@ -301,7 +311,7 @@
                                     <figcaption class="goods-card__image-title">Treasure Trove Box</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">3$ per 100 gram</p>
                                 </div>
                             </article>
@@ -333,7 +343,7 @@
                                     <figcaption class="goods-card__image-title">Corn</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </article>
@@ -365,7 +375,7 @@
                                     <figcaption class="goods-card__image-title">Golden Crunchies</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">1$ per 100 gram</p>
                                 </div>
                             </article>
@@ -398,7 +408,7 @@
                                 </figure>
                                  <!-- a state of ultimate happiness and satisfaction for hamsters, with each section offering a different type of nutty bliss. -->
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">3$ per 100 gram</p>
                                 </div>
                             </article>
@@ -430,7 +440,7 @@
                                     <figcaption class="goods-card__image-title">Sunny Bites</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">3$ per 100 gram</p>
                                 </div>
                             </article>
@@ -463,7 +473,7 @@
                                 </figure>
                                 <!-- a horn of plenty, filled with crunchy, tasty treats. -->
                                 <div class="goods-card__info ">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" id="cornucopia-crunch-bag" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" id="cornucopia-crunch-bag" >Add to bag</p>
                                     <p class="goods-card__info-price">5$ per 100 gram</p>
                                 </div>
                             </article>
@@ -496,7 +506,7 @@
                                     <figcaption class="goods-card__image-title">Nuttier Nibbles</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">1$ per 100 gram</p>
                                 </div>
                             </article>
@@ -529,7 +539,7 @@
                                 </figure>
                                 <!-- a delightful snacking experience. -->
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">3$ per 100 gram</p>
                                 </div>
                             </article>
@@ -562,7 +572,7 @@
                                     <!-- tasty and convenient snack. -->
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">3$ per 100 gram</p>
                                 </div>
                             </article>
@@ -595,7 +605,7 @@
                                 </figure>
                                 <!-- a premium snacking experience, with each section offering a high-quality selection of nuts for to enjoy -->
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">3$ per 100 gram</p>
                                 </div>
                             </article>
@@ -627,7 +637,7 @@
                                     <figcaption class="goods-card__image-title">Jolly Jungle Joys</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">5$ per 100 gram</p>
                                 </div>
                             </article>
@@ -659,7 +669,7 @@
                                     <figcaption class="goods-card__image-title" >Hamster Harvest</figcaption>
                                 </figure>
                                 <div class="goods-card__info ">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" id="hamster-harvest-bag" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" id="hamster-harvest-bag" >Add to bag</p>
                                     <p class="goods-card__info-price">5$ per 100 gram</p>
                                 </div>
                             </article>
@@ -692,7 +702,7 @@
                                 </figure>
                                 <!-- vault-like package that's filled with a treasure trove of nuts to enjoy. -->
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">4$ per 100 gram</p>
                                 </div>
                             </article>
@@ -724,7 +734,7 @@
                                     <figcaption class="goods-card__image-title">Festive Banquet</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">5$ per 100 gram</p>
                                 </div>
                             </article>
@@ -756,7 +766,7 @@
                                     <figcaption class="goods-card__image-title">Paws &amp; Crisps</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" id="Paws-Crips-bag" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" id="Paws-Crips-bag" >Add to bag</p>
                                     <p class="goods-card__info-price">5$ per 100 gram</p>
                                 </div>
                             </article>
@@ -788,7 +798,7 @@
                                     <figcaption class="goods-card__image-title">Happy Hoard</figcaption>
                                 </figure>
                                 <div class="goods-card__info goods-card__info-discount-good">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price"><s class="goods-card__info-price-discount">2$</s> per 100 gram</p>
                                 </div>
                             </article>
@@ -820,7 +830,7 @@
                                     <figcaption class="goods-card__image-title">Crunchy Meadow</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </article>
@@ -853,7 +863,7 @@
                                 </figure>
                                 <!--  an abundance of nuts, with each section offering a different type of forest delicacy to enjoy. -->
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">7$ per 100 gram</p>
                                 </div>
                             </article>
@@ -885,7 +895,7 @@
                                     <figcaption class="goods-card__image-title">Oats</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">2$ per 100 gram</p>
                                 </div>
                             </article>
@@ -918,7 +928,7 @@
                                     <!-- a treasure trove of tasty treats for you -->
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">7$ per 100 gram</p>
                                 </div>
                             </article>
@@ -950,7 +960,7 @@
                                     <figcaption class="goods-card__image-title">Wheat</figcaption>
                                 </figure>
                                 <div class="goods-card__info goods-card__info-discount-good">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price"><s class="goods-card__info-price-discount">2$</s> per 100 gram</p>
                                 </div>
                             </article>
@@ -982,7 +992,7 @@
                                     <figcaption class="goods-card__image-title">Snuggle Snacks</figcaption>
                                 </figure>
                                 <div class="goods-card__info">
-                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" tabindex="0">Add to bag</p>
+                                    <p class="goods-card__info-bag goods-card__info-bag--highlighted" >Add to bag</p>
                                     <p class="goods-card__info-price">7$ per 100 gram</p>
                                 </div>
                             </article>

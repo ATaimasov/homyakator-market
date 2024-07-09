@@ -21,22 +21,25 @@ function throttle (func, timeout) {
 const nav = $('#navigation');
 let tempScrollTop = $(window).scrollTop();
 let isMenuOpen = false;
+navSlided = 'navigation-wrapper--slided';
+  navFixed = 'navigation-wrapper--fixed';
 
 function fixedNavigation () {
 
   if (isMenuOpen) return; 
+  
 
   let currentScrollTop = $(window).scrollTop();
   if (currentScrollTop > nav.height()) {
-    nav.addClass('navigation-wrapper--fixed');
+    nav.addClass(navFixed);
     if ( tempScrollTop > currentScrollTop ) {
-      nav.addClass('navigation-wrapper--slided');
+      nav.addClass(navSlided);
     } else {
-    nav.removeClass('navigation-wrapper--slided');
+    nav.removeClass(navSlided);
     }
   } else {
-    nav.removeClass('navigation-wrapper--fixed');
-    nav.removeClass('navigation-wrapper--slided');
+    nav.removeClass(navFixed);
+    nav.removeClass(navSlided);
   }
   tempScrollTop = currentScrollTop;
   };
@@ -216,29 +219,74 @@ $(document).on('keydown', (key) => {
   }
 })
 
-// product interaction with tab keyboard script
 
-$('.slick-active').on('focus', () => {
-  $('.goods-card__info-bag').find().trigger('focus');
-  console.log(1)
-})
+// bag-counter 
+function bagCounting () {
+
+  let currentCount = parseInt($('#header__cart-count').text());
+  let headerCartCount = $('#header__cart-count');
+  
+  function updateAddToBagVisibility(element) {
+  
+    if (currentCount > 0) {
+      element.css('display', 'none');
+      element.siblings('.bag-counter-container').css('display', 'flex'); 
+    } else {
+      element.css('display', 'block');
+      element.siblings('.bag-counter-container').css('display', 'none'); 
+    }
+  }
+  
+  $('.add-to-bag').click(function () {
+  
+    let counterInput = $(this).parent().children().find('input');
+  
+  
+    if (currentCount === 0 && counterInput.val(0)) {
+      counterInput.val(parseInt(counterInput.val()) + 1);
+      currentCount++;
+      headerCartCount.text(currentCount);
+    }
+    updateAddToBagVisibility($(this));
+    nav.addClass(navSlided);
+  })
+  
+  $('.bag-counter__minus').click(function () {
+    
+    if (currentCount > 0 ) {
+     
+      var counterInput = $(this).parent().find('input');
+      var count = parseInt(counterInput.val()) - 1;
+      counterInput.val(count);
+  
+      currentCount--;
+      headerCartCount.text(currentCount);
+  
+    }
+    updateAddToBagVisibility($(this).parent().parent().children().eq(2));
+    nav.addClass(navSlided);
+  })
+  
+  $('.bag-counter__plus').click(function () {
+  
+     var counterInput = $(this).parent().find('input');
+     counterInput.val(parseInt(counterInput.val()) + 1)
+  
+    if (currentCount < 100) {
+      currentCount++;
+      headerCartCount.text(currentCount);
+  
+    }
+    updateAddToBagVisibility($(this).parent().parent().children().eq(2));
+    nav.addClass(navSlided);
+  });
+
+}
+
+bagCounting();
 
 
-// когда проходит все активные слайдеры то срабатывает триггер на переключение слайда, а переключение из кнопок которые перебираются из массива
 
-// $('.goods-card').on('focus', () => {
-//  $('.goods-card__info-bag').trigger('focus');
-// });
-
-// $(document).on('keydown', (key) => {
-
-//   if (key.which === 9) {
-//     const focusedElement = document.activeElement;
-//     if ($(focusedElement).hasClass('goods-card')) {
-
-//     }
-// }
-// });
 
 // toaster script
 const toaster = $('#contact-form-toaster');
