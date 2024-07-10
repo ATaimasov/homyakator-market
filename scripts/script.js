@@ -207,7 +207,7 @@ $('#contact-link').click(()=> {
   MakeHighlighted('#contact-header');
 })
 
-// filter interaction with enter keyboard script
+// filter and bag-counter interaction  with enter key
 
 $(document).on('keydown', (key) => {
   if (key.which === 13) {
@@ -216,19 +216,25 @@ $(document).on('keydown', (key) => {
     if ($(focusedElement).hasClass('goods__filter-item')) {
       $(focusedElement).trigger('click');
     }
+
+    if ($(focusedElement).hasClass('goods-card')) {
+      $(focusedElement).children().eq(1).children().eq(2).trigger('click')
+    }
+    
   }
 })
-
 
 // bag-counter 
 function bagCounting () {
 
-  let currentCount = parseInt($('#header__cart-count').text());
   let headerCartCount = $('#header__cart-count');
+  let totalItemCount  = parseInt(headerCartCount.text());
   
   function updateAddToBagVisibility(element) {
-  
-    if (currentCount > 0) {
+
+    let counterInput = element.parent().children().find('input').val();
+
+    if (counterInput > 0) {
       element.css('display', 'none');
       element.siblings('.bag-counter-container').css('display', 'flex'); 
     } else {
@@ -240,50 +246,160 @@ function bagCounting () {
   $('.add-to-bag').click(function () {
   
     let counterInput = $(this).parent().children().find('input');
-  
-  
-    if (currentCount === 0 && counterInput.val(0)) {
+
+    if (counterInput.val() === "0") {
+
+      if (headerCartCount.text() >= 100) {
+        alert ('you are reach the max number');
+        return
+      }
       counterInput.val(parseInt(counterInput.val()) + 1);
-      currentCount++;
-      headerCartCount.text(currentCount);
+      totalItemCount += 1;
+      headerCartCount.text(totalItemCount);
     }
     updateAddToBagVisibility($(this));
     nav.addClass(navSlided);
+    
   })
   
   $('.bag-counter__minus').click(function () {
     
-    if (currentCount > 0 ) {
+    let counterInput = $(this).parent().find('input');
+    if (counterInput.val() > 0 ) {
      
-      var counterInput = $(this).parent().find('input');
-      var count = parseInt(counterInput.val()) - 1;
+      let count = parseInt(counterInput.val()) - 1;
       counterInput.val(count);
-  
-      currentCount--;
-      headerCartCount.text(currentCount);
-  
+      totalItemCount -= 1;
+      headerCartCount.text(totalItemCount);
+
     }
-    updateAddToBagVisibility($(this).parent().parent().children().eq(2));
+    updateAddToBagVisibility($(this).parent().parent().children().eq(1));
     nav.addClass(navSlided);
+    
   })
   
   $('.bag-counter__plus').click(function () {
   
-     var counterInput = $(this).parent().find('input');
-     counterInput.val(parseInt(counterInput.val()) + 1)
-  
-    if (currentCount < 100) {
-      currentCount++;
-      headerCartCount.text(currentCount);
+     let counterInput = $(this).parent().find('input');
+     
+    if (counterInput.val() < 10) {
+
+      if (headerCartCount.text() >= 100) {
+        alert ('you are reach the max number');
+        return
+      }
+
+      counterInput.val(parseInt(counterInput.val()) + 1)
+      totalItemCount += 1;
+      headerCartCount.text(totalItemCount);
   
     }
-    updateAddToBagVisibility($(this).parent().parent().children().eq(2));
+    updateAddToBagVisibility($(this).parent().parent().children().eq(1));
     nav.addClass(navSlided);
+    
   });
 
+
+  let previousInputs = [];
+  let currentInputs = [];
+  let itemCount = totalItemCount;
+
+
+
+  for (let i = 0; i < $('.bag-counter__count').length; i++) {
+    previousInputs[i] = 1;
+    currentInputs[i] = 1;
 }
 
+
+$('.bag-counter__count').on('input', function () {
+  let index = $('.bag-counter__count').index(this); // Получаем индекс текущего поля ввода
+
+  // Обновляем текущее значение для данного поля
+  currentInputs[index] = parseInt(this.value);
+
+  // Суммируем изменения во всех полях
+  for (let i = 0; i < currentInputs.length; i++) {
+      if (currentInputs[i] !== previousInputs[i]) {
+          itemCount += (currentInputs[i] > previousInputs[i] ? 1 : -1);
+      }
+  }
+
+  console.log(itemCount + ' item count');
+  console.log(currentInputs.join(' ') + ' curr');
+  console.log(previousInputs.join(' ') + ' prev');
+
+  // Обновляем предыдущие значения для следующего цикла
+  previousInputs = [...currentInputs];
+
+  // Ваша логика валидации и обновления UI...
+  if (itemCount !== totalItemCount) {
+    totalItemCount = itemCount;
+    headerCartCount.text(totalItemCount);
+  }
+
+  // Пример обновления текста в headerCartCount
+  headerCartCount.text(itemCount);
+  nav.addClass(navSlided);
+  updateAddToBagVisibility($(this).parent().parent().children().eq(1));
+});
+
+
+}
 bagCounting();
+
+//   let previousInputCount = 1;
+//   let currentInputCount = 1;
+//   let itemCount = 1;
+
+//   $('.bag-counter__count').on('input', function () {
+
+//     if (itemCount >= 100) return;
+
+//     currentValue = parseInt(this.value);
+    
+//     if (!previousInputCount) {
+//       previousInputCount = currentValue;
+//     }
+    
+//     currentInputCount = currentValue;
+
+//  if (currentValue > previousInputCount) {
+//   itemCount += 1;
+//  } else if (currentValue < previousInputCount && itemCount > 0) {
+//   itemCount -= 1;
+//  }
+
+  
+//   console.log(itemCount + ' item count')
+//     console.log(previousInputCount + ' prev')
+//     console.log(currentInputCount + ' curr')
+
+    
+
+//     let value = this.value.replace(/[^0-9]/g, '');
+//     if (value < $(this).data('min')) {
+//       this.value = $(this).data('min');
+//     } else if (value > $(this).data('max')) {
+//       this.value = $(this).data('max');
+//     } else {
+//       this.value = value;
+//     }
+    
+//     headerCartCount.text(itemCount);
+//     nav.addClass(navSlided);
+    
+//     // console.log(totalItemCount +' totalitem count')
+//     // console.log(headerCartCount.text() + " header count")
+//     updateAddToBagVisibility($(this).parent().parent().children().eq(1));
+
+//     previousInputCount = currentInputCount;
+// })
+
+
+
+
+
 
 
 
