@@ -409,6 +409,38 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
+.toaster {
+    min-width: 300px;
+    max-width: 325px;
+    background-color: #333;
+    color: #fff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    padding: 0 15px;
+    transition: transform .5s ease-out; 
+    position: fixed;
+    z-index: 1;
+    transform: translateX(100%); 
+}
+
+.toaser__image {
+    max-width: 35%;
+    height: auto;
+}
+
+.toaster__text {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 171%;
+    color: white;
+}
+
+.toaster.toaster--slide-right {
+    transform: translateX(0); 
+}
+
 /* common styles end  */
 
 /* header styles start  */
@@ -831,6 +863,12 @@ animation-delay: .5s;
     
 }
 
+.bag-counter-toaster {
+        top: 100px;
+        right: 0;
+        
+}
+
 /* images animation */
 
 .goods-card {
@@ -1209,37 +1247,10 @@ color: #000;
     color: #353434;
 }
 
+
 .contact-form-toaster {
-    min-width: 300px;
-    max-width: 325px;
-    background-color: #333;
-    color: #fff; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2px;
-    padding: 0 15px;
-    transition: transform .5s ease-out; 
-    transform: translateX(100%); 
-    position: fixed;
     bottom: 50px;
     right: 0;
-    z-index: 1;
-}
-.contact-form-toaster--slide-right {
-    transform: translateX(0); 
-}
-
-.contact-form-toaser__image {
-    max-width: 35%;
-    height: auto;
-}
-
-.contact-form-toaser__text {
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 171%;
-    color: white;
 }
 
 /* contact form end  */

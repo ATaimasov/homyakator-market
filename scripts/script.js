@@ -16,6 +16,10 @@ function throttle (func, timeout) {
   }
 }
 
+// debounce script
+
+
+
 // fixed nav script
 
 const nav = $('#navigation');
@@ -120,7 +124,7 @@ const filterItems = $('.goods__filter-item');
 let filtered = false;
 
 const makeFiltered = (event, filterClass) => {
-    const target = $(event.target);
+const target = $(event.target);
   
     if (target.hasClass("goods__filter-item--active")) {
       target.removeClass("goods__filter-item--active");
@@ -224,22 +228,47 @@ $(document).on('keydown', (key) => {
   }
 })
 
+
+// bag-counter limit toaster
+
+const bagCounterToaster = $('#bag-counter-toaster')
+bagCounterToaster.hide();
+
+function bagCounterToasterMaximum () {
+  bagCounterToaster.fadeIn(1000).delay(1000).addClass('toaster--slide-right');
+
+  setTimeout(() => {
+    bagCounterToaster.removeClass('toaster--slide-right');
+  }, 3999)
+
+  setTimeout(() => {
+    bagCounterToaster.fadeOut(500)
+  }, 4000)
+}
+
+let throttledbagCounterToasterMaximum = throttle(bagCounterToasterMaximum, 200);
+
 // bag-counter 
+
 function bagCounting () {
 
   let headerCartCount = $('#header__cart-count');
-  let totalItemCount  = parseInt(headerCartCount.text());
+  
+  let itemCount = 0;
+
   
   function updateAddToBagVisibility(element) {
 
-    let counterInput = element.parent().children().find('input').val();
+    let counterInput = element.siblings('.bag-counter-container').find('input').val();
 
     if (counterInput > 0) {
       element.css('display', 'none');
       element.siblings('.bag-counter-container').css('display', 'flex'); 
+      
     } else {
       element.css('display', 'block');
       element.siblings('.bag-counter-container').css('display', 'none'); 
+      
     }
   }
   
@@ -247,19 +276,20 @@ function bagCounting () {
   
     let counterInput = $(this).parent().children().find('input');
 
-    if (counterInput.val() === "0") {
+    if (counterInput.val() === "0" || counterInput.val() === " ") {
 
       if (headerCartCount.text() >= 100) {
-        alert ('you are reach the max number');
+        throttledbagCounterToasterMaximum();
         return
       }
       counterInput.val(parseInt(counterInput.val()) + 1);
-      totalItemCount += 1;
-      headerCartCount.text(totalItemCount);
+      itemCount += 1;
+      headerCartCount.text(itemCount);
     }
     updateAddToBagVisibility($(this));
     nav.addClass(navSlided);
-    
+    console.log(itemCount + ' item count')
+    console.log(counterInput.val() + " value")
   })
   
   $('.bag-counter__minus').click(function () {
@@ -269,132 +299,106 @@ function bagCounting () {
      
       let count = parseInt(counterInput.val()) - 1;
       counterInput.val(count);
-      totalItemCount -= 1;
-      headerCartCount.text(totalItemCount);
+      itemCount -= 1;
+      headerCartCount.text(itemCount);
 
     }
-    updateAddToBagVisibility($(this).parent().parent().children().eq(1));
+    updateAddToBagVisibility($(this).parent().siblings('.add-to-bag'));
     nav.addClass(navSlided);
-    
+    console.log(itemCount + ' item count')
   })
   
   $('.bag-counter__plus').click(function () {
+
+    // const id = $(this).closest('.goods-card').attr('data-product-id');
+    // const currentValue = parseInt($(this).siblings('input').value);
+
+    // console.log(currentValue)
+
+    // if (!inputStates[id]) {
+    //   inputStates[id] = { previousInputCount: 0, currentInputCount: 0 };
+    // }
   
-     let counterInput = $(this).parent().find('input');
+    // inputStates[id].previousInputCount = inputStates[id].currentInputCount; // currentValue before change
+    // inputStates[id].currentInputCount = currentValue; // currentValue after change
+  
+
+     let counterInput = $(this).siblings('input');
+
+  
+    //  if (inputStates[id].currentInputCount > inputStates[id].previousInputCount) {
+    //   itemCount += 1;
+    // }
      
     if (counterInput.val() < 10) {
 
       if (headerCartCount.text() >= 100) {
-        alert ('you are reach the max number');
+        throttledbagCounterToasterMaximum()
         return
       }
 
       counterInput.val(parseInt(counterInput.val()) + 1)
-      totalItemCount += 1;
-      headerCartCount.text(totalItemCount);
+      itemCount += 1;
+      headerCartCount.text(itemCount);
   
     }
-    updateAddToBagVisibility($(this).parent().parent().children().eq(1));
+    updateAddToBagVisibility($(this).parent().siblings('.add-to-bag'));
     nav.addClass(navSlided);
-    
+    console.log(itemCount + ' item count')
   });
 
+  let inputStates = {};
 
-  let previousInputs = [];
-  let currentInputs = [];
-  let itemCount = totalItemCount;
+  $('.bag-counter__count').on('input', function () {
+    const id = $(this).closest('.goods-card').attr('data-product-id');
+    const currentValue = parseInt(this.value);
 
+    // Initialize the state for a new item if it does not already exist
+    if (!inputStates[id]) {
+      inputStates[id] = { previousInputCount: 0, currentInputCount: 0 };
+    }
+  
+    // values updates. currentValue declared above
+    inputStates[id].previousInputCount = inputStates[id].currentInputCount; // currentValue before change
+    inputStates[id].currentInputCount = currentValue; // currentValue after change
+  
+    // itemCount update
+    if (inputStates[id].currentInputCount > inputStates[id].previousInputCount) {
+      itemCount += 1;
+    } else if (((inputStates[id].currentInputCount < inputStates[id].previousInputCount) && itemCount > 0) || ((inputStates[id].previousInputCount === 0) && itemCount > 0)) {
+      itemCount -= 1;
+    }
 
-
-  for (let i = 0; i < $('.bag-counter__count').length; i++) {
-    previousInputs[i] = 1;
-    currentInputs[i] = 1;
-}
-
-
-$('.bag-counter__count').on('input', function () {
-  let index = $('.bag-counter__count').index(this); // Получаем индекс текущего поля ввода
-
-  // Обновляем текущее значение для данного поля
-  currentInputs[index] = parseInt(this.value);
-
-  // Суммируем изменения во всех полях
-  for (let i = 0; i < currentInputs.length; i++) {
-      if (currentInputs[i] !== previousInputs[i]) {
-          itemCount += (currentInputs[i] > previousInputs[i] ? 1 : -1);
-      }
-  }
-
-  console.log(itemCount + ' item count');
-  console.log(currentInputs.join(' ') + ' curr');
-  console.log(previousInputs.join(' ') + ' prev');
-
-  // Обновляем предыдущие значения для следующего цикла
-  previousInputs = [...currentInputs];
-
-  // Ваша логика валидации и обновления UI...
-  if (itemCount !== totalItemCount) {
-    totalItemCount = itemCount;
-    headerCartCount.text(totalItemCount);
-  }
-
-  // Пример обновления текста в headerCartCount
-  headerCartCount.text(itemCount);
-  nav.addClass(navSlided);
-  updateAddToBagVisibility($(this).parent().parent().children().eq(1));
-});
+    if (itemCount > 100) {
+      itemCount = 100;
+      throttledbagCounterToasterMaximum()
+      // блокировка input
+    }
+  
+    console.log(itemCount + ' item count');
+    console.log(inputStates[id].previousInputCount + ' prev');
+    console.log(inputStates[id].currentInputCount + ' curr');
+  
+    let value = this.value.replace(/[^0-9]/g, '');
+        if (value < $(this).data('min')) {
+          this.value = $(this).data('min');
+        } else if (value > $(this).data('max')) {
+          this.value = $(this).data('max');
+        } else {
+          this.value = value;
+        }
+        
+        headerCartCount.text(itemCount);
+        nav.addClass(navSlided);
+        updateAddToBagVisibility($(this).parent().siblings('.add-to-bag'));
+    
+       
+  });
 
 
 }
 bagCounting();
 
-//   let previousInputCount = 1;
-//   let currentInputCount = 1;
-//   let itemCount = 1;
-
-//   $('.bag-counter__count').on('input', function () {
-
-//     if (itemCount >= 100) return;
-
-//     currentValue = parseInt(this.value);
-    
-//     if (!previousInputCount) {
-//       previousInputCount = currentValue;
-//     }
-    
-//     currentInputCount = currentValue;
-
-//  if (currentValue > previousInputCount) {
-//   itemCount += 1;
-//  } else if (currentValue < previousInputCount && itemCount > 0) {
-//   itemCount -= 1;
-//  }
-
-  
-//   console.log(itemCount + ' item count')
-//     console.log(previousInputCount + ' prev')
-//     console.log(currentInputCount + ' curr')
-
-    
-
-//     let value = this.value.replace(/[^0-9]/g, '');
-//     if (value < $(this).data('min')) {
-//       this.value = $(this).data('min');
-//     } else if (value > $(this).data('max')) {
-//       this.value = $(this).data('max');
-//     } else {
-//       this.value = value;
-//     }
-    
-//     headerCartCount.text(itemCount);
-//     nav.addClass(navSlided);
-    
-//     // console.log(totalItemCount +' totalitem count')
-//     // console.log(headerCartCount.text() + " header count")
-//     updateAddToBagVisibility($(this).parent().parent().children().eq(1));
-
-//     previousInputCount = currentInputCount;
-// })
 
 
 
@@ -403,24 +407,23 @@ bagCounting();
 
 
 
-
-// toaster script
-const toaster = $('#contact-form-toaster');
-toaster.hide();
+// contact-form toaster script
+const contactToaster = $('#contact-form-toaster');
+contactToaster.hide();
 
 $('#contact-form').submit((event) => {
   event.preventDefault();
   
   $('#contact-button').prop('disabled', true);
 
-  toaster.fadeIn(1000).delay(1000).addClass('contact-form-toaster--slide-right');
+  contactToaster.fadeIn(1000).delay(1000).addClass('toaster--slide-right');
 
   setTimeout(() => {
-      toaster.removeClass('contact-form-toaster--slide-right');
+    contactToaster.removeClass('toaster--slide-right');
   }, 3999)
 
   setTimeout(() => {
-    toaster.fadeOut(500)
+    contactToaster.fadeOut(500)
   }, 4000)
   
   setTimeout(() => {
