@@ -1,0 +1,384 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+/* default styles start */
+.slick-slider
+{
+    position: relative;
+
+    display: block;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+
+    height: auto;
+
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+
+/* default styles end */
+
+
+.slick-list {
+    border-radius: 20px;
+}
+
+.slick-dots {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 50px 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    position: relative;
+}
+
+.slick-dots li {
+    list-style: none;
+    margin: 0 25px;
+}
+
+.slick-dots button {
+    border-radius: 50%;
+    font-size: 0;
+    width: 20px;
+    height: 20px;
+    background: -o-linear-gradient(45deg, rgb(205, 209, 182), rgb(193, 197, 166), rgb(197, 202, 169));
+    background: linear-gradient(45deg, rgb(205, 209, 182), rgb(193, 197, 166), rgb(197, 202, 169));
+    border: none;
+    opacity: 0.3;
+}
+
+.slick-dots .slick-active button {
+    opacity: 1;
+}
+
+.slick-initialized .slick-slide {
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+-webkit-box-align: center;
+    -ms-flex-align: center;
+        align-items: center;
+
+
+}
+
+@media screen and (max-width: 930px) {
+    .slick-dots button {
+        width: 16px;
+        height: 16px;
+        background: -o-linear-gradient(45deg, rgb(205, 209, 182), rgb(193, 197, 166), rgb(197, 202, 169));
+        background: linear-gradient(45deg, rgb(205, 209, 182), rgb(193, 197, 166), rgb(197, 202, 169));
+        border: none;
+        opacity: 0.3;
+    }
+
+    .slick-dots li {
+        list-style: none;
+        margin: 0 15px;
+    }
+}
+
+
+
+@media screen and (max-width: 620px) {
+
+    .slick-dots button {
+        width: 15px;
+        height: 15px;
+        background: -o-linear-gradient(45deg, rgb(205, 209, 182), rgb(193, 197, 166), rgb(197, 202, 169));
+        background: linear-gradient(45deg, rgb(205, 209, 182), rgb(193, 197, 166), rgb(197, 202, 169));
+        border: none;
+        opacity: 0.3;
+    }
+
+    .slick-dots li {
+        list-style: none;
+        margin: 0 12px;
+    }
+
+    .goods-card__info {
+        min-width: 250px;
+    }
+
+    .goods-card__info-discount-good::after {
+        left: 40%;
+    }
+
+    .goods-card__info-bag {
+        margin-right: 5px;
+    }
+
+    .goods-card__info-price::before {
+        padding-right: 5px;
+    }
+
+    .goods-card__image {
+        max-width: 250px;
+    }
+
+}
+
+@media screen and (max-width: 530px) {
+
+    .slick-dots button {
+        width: 12px;
+        height: 12px;
+    }
+
+    .slick-dots li {
+        list-style: none;
+        margin: 0 8px
+    }
+
+    .slick-list {
+        border-radius: 10px;
+    }
+
+    .goods-card__info {
+        min-width: 230px;
+    }
+
+    .goods-card__info-bag {
+        margin-right: 1px;
+    }
+
+    .goods-card__info-price::before {
+        padding-right: 1px;
+    }
+
+    .goods-card__image {
+        max-width: 230px;
+    }
+
+}
+
+@media screen and (max-width: 475px) {
+    .goods-card__info {
+        min-width: 200px;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        padding-top: 7px;
+        margin-top: 7px;
+    }
+    .goods-card__info-discount-good::after {
+        left: 7%;
+        top: 70%;
+        font-size: 1.2em;
+    }
+
+    .goods-card__info-bag {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        margin-right: 0px;
+    }
+
+    .goods-card__info-price {
+        font-size: 1.2rem;
+        padding-right: 0px;
+    }
+
+    .goods-card__info-price::before {
+        visibility: hidden;
+    }
+
+    .goods-card__image {
+        max-width: 200px;
+    }
+
+    .goods-card__image-title {
+        text-align: center;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+
+    .about-us-item:not(.about-us-item:last-of-type) {
+        padding-bottom: 40px;
+    }
+
+    .goods-card__info {
+        min-width: 150px;
+    }
+
+    .goods-card__info-discount-good::after {
+        left: 0%;
+        top: 45%;
+    }
+
+    .goods-card__image {
+        max-width: 150px;
+    }
+
+}
+
+@media screen and (max-width: 370px) {
+
+    .slick-dots button {
+        width: 11px;
+        height: 11px;
+    }
+
+    .slick-dots li {
+        list-style: none;
+        margin: 0 6px
+    }
+
+}
+@media screen and (max-width: 370px) {
+
+    .goods-card__info-discount-good::after {
+        left: 10%;
+        top: 48%;
+    }
+    
+
+}
+
+@media screen and (max-width: 315px) {
+
+    .slick-dots button {
+        width: 11px;
+        height: 11px;
+    }
+
+    .slick-dots li {
+        list-style: none;
+        margin: 0 3px
+    }
+
+    .goods-card__info {
+        min-width: 120px;
+    }
+
+    .goods-card__image {
+        max-width: 120px;
+    }
+
+}

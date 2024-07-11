@@ -1,7 +1,6 @@
 ;(function ($, undefined) {
 
-
-// throttle script
+// throttle scroll script
 
 function throttle (func, timeout) {
   let timer = null;
@@ -16,9 +15,18 @@ function throttle (func, timeout) {
   }
 }
 
-// debounce script
+// throttle toaster script
 
-
+function throttleToaster (func, delay) {
+  let lastExecutionTime = 0;
+  return function(...args) {
+    const now = new Date().getTime();
+    if (now - lastExecutionTime > delay) {
+      func.apply(this, args);
+      lastExecutionTime = now;
+    }
+  };
+}
 
 // fixed nav script
 
@@ -88,6 +96,29 @@ $('.header__link-inner-link').on('click', () => {
 }); 
 })
 
+// header cart toaster
+
+const cartBag = $('#header__cart-bag-toaster');
+cartBag.hide();
+
+function cartBagWarning () {
+  cartBag.fadeIn(1000).delay(1000).addClass('toaster--slide-right');
+
+  setTimeout(() => {
+    cartBag.removeClass('toaster--slide-right');
+  }, 3999)
+
+  setTimeout(() => {
+    cartBag.fadeOut(500)
+  }, 4000)
+}
+
+let throttledCartBag = throttleToaster (cartBagWarning, 4500);
+
+$('#header__cart-image-container').click(function () {
+  throttledCartBag()
+})
+
 //carousel script
 
   const slider = $('#slider');
@@ -113,8 +144,6 @@ $('.header__link-inner-link').on('click', () => {
             slidesToScroll: 2
           }
         },
-         
-        
        ]
     })
 
@@ -122,7 +151,6 @@ $('.header__link-inner-link').on('click', () => {
 
 const filterItems = $('.goods__filter-item');
 let filtered = false;
-
 const makeFiltered = (event, filterClass) => {
 const target = $(event.target);
   
@@ -228,7 +256,6 @@ $(document).on('keydown', (key) => {
   }
 })
 
-
 // bag-counter limit toaster
 
 const bagCounterToaster = $('#bag-counter-toaster')
@@ -246,17 +273,15 @@ function bagCounterToasterMaximum () {
   }, 4000)
 }
 
-let throttledbagCounterToasterMaximum = throttle(bagCounterToasterMaximum, 200);
+let throttledBagCounterToasterMaximum = throttleToaster (bagCounterToasterMaximum, 4500);
 
 // bag-counter 
 
 function bagCounting () {
 
-  let headerCartCount = $('#header__cart-count');
-  
+  let headerCartCount = $('#header__cart-container');
   let itemCount = 0;
 
-  
   function updateAddToBagVisibility(element) {
 
     let counterInput = element.siblings('.bag-counter-container').find('input').val();
@@ -279,7 +304,7 @@ function bagCounting () {
     if (counterInput.val() === "0" || counterInput.val() === " ") {
 
       if (headerCartCount.text() >= 100) {
-        throttledbagCounterToasterMaximum();
+        throttledBagCounterToasterMaximum();
         return
       }
       counterInput.val(parseInt(counterInput.val()) + 1);
@@ -310,30 +335,12 @@ function bagCounting () {
   
   $('.bag-counter__plus').click(function () {
 
-    // const id = $(this).closest('.goods-card').attr('data-product-id');
-    // const currentValue = parseInt($(this).siblings('input').value);
-
-    // console.log(currentValue)
-
-    // if (!inputStates[id]) {
-    //   inputStates[id] = { previousInputCount: 0, currentInputCount: 0 };
-    // }
-  
-    // inputStates[id].previousInputCount = inputStates[id].currentInputCount; // currentValue before change
-    // inputStates[id].currentInputCount = currentValue; // currentValue after change
-  
-
      let counterInput = $(this).siblings('input');
 
-  
-    //  if (inputStates[id].currentInputCount > inputStates[id].previousInputCount) {
-    //   itemCount += 1;
-    // }
-     
     if (counterInput.val() < 10) {
 
       if (headerCartCount.text() >= 100) {
-        throttledbagCounterToasterMaximum()
+        throttledBagCounterToasterMaximum()
         return
       }
 
@@ -347,65 +354,59 @@ function bagCounting () {
     console.log(itemCount + ' item count')
   });
 
-  let inputStates = {};
 
-  $('.bag-counter__count').on('input', function () {
-    const id = $(this).closest('.goods-card').attr('data-product-id');
-    const currentValue = parseInt(this.value);
+  // blocked by readonly atrribute because it's need improvement
 
-    // Initialize the state for a new item if it does not already exist
-    if (!inputStates[id]) {
-      inputStates[id] = { previousInputCount: 0, currentInputCount: 0 };
-    }
-  
-    // values updates. currentValue declared above
-    inputStates[id].previousInputCount = inputStates[id].currentInputCount; // currentValue before change
-    inputStates[id].currentInputCount = currentValue; // currentValue after change
-  
-    // itemCount update
-    if (inputStates[id].currentInputCount > inputStates[id].previousInputCount) {
-      itemCount += 1;
-    } else if (((inputStates[id].currentInputCount < inputStates[id].previousInputCount) && itemCount > 0) || ((inputStates[id].previousInputCount === 0) && itemCount > 0)) {
-      itemCount -= 1;
-    }
 
-    if (itemCount > 100) {
-      itemCount = 100;
-      throttledbagCounterToasterMaximum()
-      // блокировка input
-    }
+  // let inputStates = {};
+
+  // $('.bag-counter__count').on('input', function () {
+  //   const id = $(this).closest('.goods-card').attr('data-product-id');
+  //   const currentValue = parseInt(this.value);
+
+  //   // Initialize the state for a new item if it does not already exist
+  //   if (!inputStates[id]) {
+  //     inputStates[id] = { previousInputCount: 0, currentInputCount: 0 };
+  //   }
   
-    console.log(itemCount + ' item count');
-    console.log(inputStates[id].previousInputCount + ' prev');
-    console.log(inputStates[id].currentInputCount + ' curr');
+  //   // values updates. currentValue declared above
+  //   inputStates[id].previousInputCount = inputStates[id].currentInputCount; // currentValue before change
+  //   inputStates[id].currentInputCount = currentValue; // currentValue after change
   
-    let value = this.value.replace(/[^0-9]/g, '');
-        if (value < $(this).data('min')) {
-          this.value = $(this).data('min');
-        } else if (value > $(this).data('max')) {
-          this.value = $(this).data('max');
-        } else {
-          this.value = value;
-        }
+  //   // itemCount update
+  //   if (inputStates[id].currentInputCount > inputStates[id].previousInputCount) {
+  //     itemCount += 1;
+  //   } else if (((inputStates[id].currentInputCount < inputStates[id].previousInputCount) && itemCount > 0) || ((inputStates[id].previousInputCount === 0) && itemCount > 0)) {
+  //     itemCount -= 1;
+  //   }
+
+  //   if (itemCount > 100) {
+  //     itemCount = 100;
+  //     throttledbagCounterToasterMaximum()
+  //     // блокировка input
+  //   }
+  
+  //   console.log(itemCount + ' item count');
+  //   console.log(inputStates[id].previousInputCount + ' prev');
+  //   console.log(inputStates[id].currentInputCount + ' curr');
+  
+  //   let value = this.value.replace(/[^0-9]/g, '');
+  //       if (value < $(this).data('min')) {
+  //         this.value = $(this).data('min');
+  //       } else if (value > $(this).data('max')) {
+  //         this.value = $(this).data('max');
+  //       } else {
+  //         this.value = value;
+  //       }
         
-        headerCartCount.text(itemCount);
-        nav.addClass(navSlided);
-        updateAddToBagVisibility($(this).parent().siblings('.add-to-bag'));
-    
-       
-  });
+  //       headerCartCount.text(itemCount);
+  //       nav.addClass(navSlided);
+  //       updateAddToBagVisibility($(this).parent().siblings('.add-to-bag'));
+  // });
 
 
 }
 bagCounting();
-
-
-
-
-
-
-
-
 
 // contact-form toaster script
 const contactToaster = $('#contact-form-toaster');
@@ -437,6 +438,3 @@ $('#contact-header').click(() => {
 })
 
 })(jQuery);
-
-
-
