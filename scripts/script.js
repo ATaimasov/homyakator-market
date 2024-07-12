@@ -282,6 +282,7 @@ function bagCounting () {
   let headerCartCount = $('#header__cart-container');
   let itemCount = 0;
 
+ 
   function updateAddToBagVisibility(element) {
 
     let counterInput = element.siblings('.bag-counter-container').find('input').val();
@@ -320,14 +321,21 @@ function bagCounting () {
   $('.bag-counter__minus').click(function () {
     
     let counterInput = $(this).parent().find('input');
+
+
+
     if (counterInput.val() > 0 ) {
      
       let count = parseInt(counterInput.val()) - 1;
       counterInput.val(count);
       itemCount -= 1;
       headerCartCount.text(itemCount);
-
     }
+
+    if (itemCount <= 0) {
+      headerCartCount.text("")
+    }
+
     updateAddToBagVisibility($(this).parent().siblings('.add-to-bag'));
     nav.addClass(navSlided);
     console.log(itemCount + ' item count')
@@ -342,7 +350,7 @@ function bagCounting () {
       if (headerCartCount.text() >= 100) {
         throttledBagCounterToasterMaximum()
         return
-      }
+      } 
 
       counterInput.val(parseInt(counterInput.val()) + 1)
       itemCount += 1;

@@ -98,6 +98,12 @@ input::-webkit-inner-spin-button {
             transform: translateX(0); 
 }
 
+
+::selection {
+    background-color: #bebcb9;
+    color: black;
+}
+
 /* common styles end  */
 
 /* header styles start  */

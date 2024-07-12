@@ -91,9 +91,19 @@
         </footer>
 
     <script>
-        const homavideo = document.querySelectorAll('.hamster-video');
-        const randomIndex = Math.floor(Math.random() * homavideo.length);
-        homavideo[randomIndex].style.display = 'block';
+        const homavideos = document.querySelectorAll('.hamster-video');
+        let randomIndex = Math.floor(Math.random() * homavideos.length);
+        homavideos[randomIndex].style.display = 'block';
+
+      
+
+        document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            homavideos.pause();
+        } else {
+            homavideos.play();
+        }
+        });
     </script>
     <script src="/scripts/jquery.min.js"></script>
     <script src="/scripts/slick.min.js"></script>
