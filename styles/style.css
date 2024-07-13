@@ -9,7 +9,8 @@
 
 html {
     font-family: "Roboto", sans-serif;
-    /* font-size: 62.5%; */
+    /* it looks better with the larger size of the font than in figma layout, i think */
+    /* font-size: 62.5%; */ 
 }
 
 /* exception for non smooth scrolling settings */
@@ -47,6 +48,7 @@ html {
 input[type='number'] {
     -moz-appearance:textfield;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -787,7 +789,6 @@ height: 8px;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    
 }
 
 .new-good-container {
@@ -852,13 +853,6 @@ height: 8px;
         -ms-flex-order: -1;
             order: -1;
 }
-
-.try-new-good-container {
-   
-
-}
-
-
 
 .try-new-good__link {
     font-family: "Butterfly Kids", cursive;
@@ -1078,7 +1072,7 @@ color: #000;
  
 }
 
-.contact-form__input__checkbox {
+.contact-form__input-checkbox {
     width: 20px;
     height: 20px;
     margin-right: 5px;
@@ -1087,13 +1081,13 @@ color: #000;
     
 }
 
-.contact-form__input__checkbox-text {
+.contact-form__checkbox-text {
     padding-left: 5px;
     cursor: pointer;
     position: relative;
    }   
 
-.contact-form__input__checkbox + .contact-form__input__checkbox-text:before {
+.contact-form__input__checkbox + .contact-form__checkbox-text:before {
     content: "" / "empty checkbox";
     position: absolute;
     left: -26px;
@@ -1108,7 +1102,7 @@ color: #000;
 }
 
 
-.contact-form__input__checkbox:checked + .contact-form__input__checkbox-text:after {
+.contact-form__input__checkbox:checked + .contact-form__checkbox-text:after {
     content: "" / "filled checkbox";
     position: absolute;
     left: -20px;
@@ -1122,7 +1116,7 @@ color: #000;
     border-radius: 50%;
 }
 
-.contact-form__input__checkbox:not(:checked):is(:focus) + .contact-form__input__checkbox-text:after {
+.contact-form__input__checkbox:not(:checked):is(:focus) + .contact-form__checkbox-text:after {
     content: "" / "selected checkbox";
     position: absolute;
     left: -20px;
