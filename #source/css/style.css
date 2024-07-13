@@ -1,10 +1,3 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
 /* common styles start  */
 
 html {
@@ -1087,7 +1080,7 @@ color: #000;
     position: relative;
    }   
 
-.contact-form__input__checkbox + .contact-form__checkbox-text:before {
+.contact-form__input-checkbox + .contact-form__checkbox-text:before {
     content: "" / "empty checkbox";
     position: absolute;
     left: -26px;
@@ -1102,7 +1095,7 @@ color: #000;
 }
 
 
-.contact-form__input__checkbox:checked + .contact-form__checkbox-text:after {
+.contact-form__input-checkbox:checked + .contact-form__checkbox-text:after {
     content: "" / "filled checkbox";
     position: absolute;
     left: -20px;
@@ -1116,7 +1109,7 @@ color: #000;
     border-radius: 50%;
 }
 
-.contact-form__input__checkbox:not(:checked):is(:focus) + .contact-form__checkbox-text:after {
+.contact-form__input-checkbox:not(:checked):is(:focus) + .contact-form__checkbox-text:after {
     content: "" / "selected checkbox";
     position: absolute;
     left: -20px;

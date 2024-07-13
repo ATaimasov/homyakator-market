@@ -1,3 +1,5 @@
+@import url(./main.css);
+
 .body-wrapper {
     background: -webkit-linear-gradient(45deg, rgb(207, 210, 189), rgb(212, 215, 194), rgb(212, 215, 194));
     background: -moz-linear-gradient(45deg, rgb(207, 210, 189), rgb(212, 215, 194), rgb(212, 215, 194));
