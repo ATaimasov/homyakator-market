@@ -99,6 +99,11 @@ input::-webkit-inner-spin-button {
     color: black;
 }
 
+
+:is(:link, :visited)::selection  {
+    color: green
+}
+
 /* common styles end  */
 
 /* header styles start  */
