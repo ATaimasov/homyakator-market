@@ -21,13 +21,13 @@
 - встроены различные тостеры 
 
 ### Используемые технологии и подходы: 
--HTML
--CSS
--JavaScript
--jQuery
--SlickSlider
--Prepros
--.kit
+- HTML + .kit
+- CSS
+- JavaScript
+- jQuery
+- SlickSlider
+- Prepros
+- БЭМ-методология
 
 Проект на сервере: https://homyakator.таймасов.рф
 
