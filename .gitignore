@@ -1,5 +1,7 @@
 
 archive/
+dist/
+ftp.js
 
 .vscode
 build/
@@ -10,7 +12,7 @@ node_modules/
 _site/
 tmp/
 out/
-package-lock.json
 yarn.lock
 .env
 .obsidian
+# package-lock.json
