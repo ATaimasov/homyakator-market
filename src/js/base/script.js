@@ -1,3 +1,6 @@
+let  cartItems      = {};
+
+
 ;(function ($, undefined) {
 
 // throttle scroll script
@@ -96,28 +99,28 @@ $('.header__link-inner-link').on('click', () => {
 }); 
 })
 
-// header cart toaster
+// // header cart toaster
 
-const cartBag = $('#header__cart-bag-toaster');
-cartBag.hide();
+// const cartBag = $('#header__cart-bag-toaster');
+// cartBag.hide();
 
-function cartBagWarning () {
-  cartBag.fadeIn(1000).delay(1000).addClass('toaster--slide-right');
+// function cartBagWarning () {
+//   cartBag.fadeIn(1000).delay(1000).addClass('toaster--slide-right');
 
-  setTimeout(() => {
-    cartBag.removeClass('toaster--slide-right');
-  }, 3999)
+//   setTimeout(() => {
+//     cartBag.removeClass('toaster--slide-right');
+//   }, 3999)
 
-  setTimeout(() => {
-    cartBag.fadeOut(500)
-  }, 4000)
-}
+//   setTimeout(() => {
+//     cartBag.fadeOut(500)
+//   }, 4000)
+// }
 
-let throttledCartBag = throttleToaster (cartBagWarning, 4500);
+// let throttledCartBag = throttleToaster (cartBagWarning, 4500);
 
-$('#header__cart-image-container').click(function () {
-  throttledCartBag()
-})
+// $('#cart').click(function () {
+//   throttledCartBag()
+// })
 
 //carousel script
 
@@ -209,35 +212,59 @@ const MakeHighlighted = (highlightedTarget) => {
   }
 }
 
-$('#try-cornucopia-crunch').click(() => {
+function scrolling(target, elementToScroll) {
+  target.preventDefault();
+  $('html, body').animate({
+  scrollTop: elementToScroll.offset().top 
+  }, 100)
+}
+
+$('#try-cornucopia-crunch').click(event =>  {
   MakeHighlighted('#cornucopia-crunch-bag');
   slider.slick('goTo', 8);
+  scrolling(event, $("#buy"));
 }
 );
 
-$('#try-hamster-harvest').click(() => {
+$('#try-hamster-harvest').click(event =>  {
   MakeHighlighted('#hamster-harvest-bag');
   slider.slick('goTo', 14);
+  scrolling(event, $("#buy"));
 }
 );
 
-$('#try-paws-crisps').click(() => {
+$('#try-paws-crisps').click(event =>  {
   MakeHighlighted('#Paws-Crips-bag');
   slider.slick('goTo', 17);
+  scrolling(event, $("#buy"));
 }
 );
 
-$('#shop-healthy').click(()=> {
+$('#shop-healthy').click(event =>  {
   MakeHighlighted('#healthy');
+  scrolling(event, $("#buy"));
+
 })
 
-$('#shop-exotic').click(()=> {
+$('#shop-exotic').click(event => {
   MakeHighlighted('#exotic');
+  scrolling(event, $("#buy"));
 })
 
-$('#contact-link').click(()=> {
-  MakeHighlighted('#contact-header');
-})
+$('#shop-now-button-link, #goods-link').click(event => {
+  scrolling(event, $("#buy"));
+});
+
+$('#new-goods-link').click(event => {
+  scrolling(event, $("#new-goods"));
+});
+
+$('#contact-link').click(event => {
+  scrolling(event, $("#contact-form"));
+});
+
+
+
 
 // filter and bag-counter interaction  with enter key
 
@@ -273,176 +300,227 @@ function bagCounterToasterMaximum () {
   }, 4000)
 }
 
-let throttledBagCounterToasterMaximum = throttleToaster (bagCounterToasterMaximum, 4500);
+const throttledBagCounterToasterMaximum = throttleToaster (bagCounterToasterMaximum, 4500);
+
 
 // bag-counter 
-
 function bagCounting () {
 
-  let headerCartCount = $('#header__cart-container');
-  let itemCount = 0;
+  const $headerCartCount = $('#cart__img-counter'),
+        $totalSumma      = $('#cart-list__table-footer-price'),
+        $totalQuantity   = $('#cart-list__table-footer-quantity');
 
- 
-  function updateAddToBagVisibility(element) {
 
-    let counterInput = element.siblings('.bag-counter-container').find('input').val();
-
-    if (counterInput > 0) {
-      element.css('display', 'none');
-      element.siblings('.bag-counter-container').css('display', 'flex'); 
-      
-    } else {
-      element.css('display', 'block');
-      element.siblings('.bag-counter-container').css('display', 'none'); 
-      
-    }
-  }
-  
-  $('.add-to-bag').click(function () {
-  
-    let counterInput = $(this).parent().children().find('input');
-
-    if (counterInput.val() === "0" || counterInput.val() === " ") {
-
-      if (headerCartCount.text() >= 100) {
-        throttledBagCounterToasterMaximum();
-        return
-      }
-      counterInput.val(parseInt(counterInput.val()) + 1);
-      itemCount += 1;
-      headerCartCount.text(itemCount);
-    }
-    updateAddToBagVisibility($(this));
-    nav.addClass(navSlided);
-    console.log(itemCount + ' item count')
-    console.log(counterInput.val() + " value")
-  })
-  
-  $('.bag-counter__minus').click(function () {
+  let itemCount      = 0,
+      summa          = 0;
     
-    let counterInput = $(this).parent().find('input');
+ 
+  let $counterInput, 
+      $product,
+      $id,
+      $name,
+      $cost;
+   
+    $('.goods-card__info').on('click', function(event) {
+      $counterInput = $(this).find('input'),
+      $product = $(this).closest('.goods-card');
+      $id = parseInt($product.attr('data-product-id'));
+      $name = $product.attr('data-product-name');
+      $cost = parseInt($product.attr('data-product-cost'));
+  });
 
+  $(document).on('click', '.add-to-bag', function() {
+      addToBag($counterInput);
+  });
 
+  $(document).on('click', '.bag-counter__plus', function() {
+      counterPlus($counterInput);
+  });
 
-    if (counterInput.val() > 0 ) {
-     
-      let count = parseInt(counterInput.val()) - 1;
-      counterInput.val(count);
-      itemCount -= 1;
-      headerCartCount.text(itemCount);
-    }
-
-    if (itemCount <= 0) {
-      headerCartCount.text("")
-    }
-
-    updateAddToBagVisibility($(this).parent().siblings('.add-to-bag'));
-    nav.addClass(navSlided);
-    console.log(itemCount + ' item count')
-  })
-  
-  $('.bag-counter__plus').click(function () {
-
-     let counterInput = $(this).siblings('input');
-
-    if (counterInput.val() < 10) {
-
-      if (headerCartCount.text() >= 100) {
-        throttledBagCounterToasterMaximum()
-        return
-      } 
-
-      counterInput.val(parseInt(counterInput.val()) + 1)
-      itemCount += 1;
-      headerCartCount.text(itemCount);
-  
-    }
-    updateAddToBagVisibility($(this).parent().siblings('.add-to-bag'));
-    nav.addClass(navSlided);
-    console.log(itemCount + ' item count')
+  $(document).on('click', '.bag-counter__minus', function() {
+      counterMinus($counterInput);
   });
 
 
-  // blocked by readonly atrribute because it's need improvement
+  // change "add to bag" with "plus" and "minus"
+  function updateAddToBagVisibility(input) {
 
+    const $addToBag = input.parents('.goods-card__info').find('.add-to-bag');
 
-  // let inputStates = {};
+    if (input.val() > 0) {
+      $addToBag.css('display', 'none');
+      $addToBag.siblings('.bag-counter-container').css('display', 'flex'); 
+      
+    } else {
+      $addToBag.css('display', 'block');
+      $addToBag.siblings('.bag-counter-container').css('display', 'none'); 
+    }
+  }
 
-  // $('.bag-counter__count').on('input', function () {
-  //   const id = $(this).closest('.goods-card').attr('data-product-id');
-  //   const currentValue = parseInt(this.value);
+  function addToBag(input) {
 
-  //   // Initialize the state for a new item if it does not already exist
-  //   if (!inputStates[id]) {
-  //     inputStates[id] = { previousInputCount: 0, currentInputCount: 0 };
-  //   }
+    if(counterLimit()) {
+      return
+    }
+
+    if (input.val() === "0" || input.val() === " ") {
+      input.val(parseInt(input.val()) + 1);
+      itemCount += 1;
+      fillingCart(input);
+      $headerCartCount.text(itemCount);
+      console.log(cartItems)
+    }
+    updateAddToBagVisibility(input);
+    nav.addClass(navSlided);
+  }
+ 
+  function counterPlus(input) {
+
+    if(counterLimit()) {
+      return
+    }
+
+    if (input.val() < 10) {
+      input.val(parseInt(input.val()) + 1);
+      itemCount += 1;
+      $headerCartCount.text(itemCount);
+      fillingCart(input);
+      console.log(cartItems)
+    }
+    updateAddToBagVisibility(input);
+    nav.addClass(navSlided);
+  }
+  function counterMinus(input) {
+
+    if (input.val() > 0) {
+      input.val(parseInt(input.val()) - 1);
+      itemCount -= 1;
+      $headerCartCount.text(itemCount);
+      removeFromCart(input);
+      console.log(cartItems)
+    }
+
+    if (itemCount <= 0) {
+      $headerCartCount.text("")
+    }
+
+    updateAddToBagVisibility(input);
+    nav.addClass(navSlided);
+  }
   
-  //   // values updates. currentValue declared above
-  //   inputStates[id].previousInputCount = inputStates[id].currentInputCount; // currentValue before change
-  //   inputStates[id].currentInputCount = currentValue; // currentValue after change
-  
-  //   // itemCount update
-  //   if (inputStates[id].currentInputCount > inputStates[id].previousInputCount) {
-  //     itemCount += 1;
-  //   } else if (((inputStates[id].currentInputCount < inputStates[id].previousInputCount) && itemCount > 0) || ((inputStates[id].previousInputCount === 0) && itemCount > 0)) {
-  //     itemCount -= 1;
-  //   }
+  // bag limit
+  function counterLimit () {
+    if (itemCount >= 15) {
+      throttledBagCounterToasterMaximum();
+      return true
+    }
+    return false
+  }
 
-  //   if (itemCount > 100) {
-  //     itemCount = 100;
-  //     throttledbagCounterToasterMaximum()
-  //     // блокировка input
-  //   }
-  
-  //   console.log(itemCount + ' item count');
-  //   console.log(inputStates[id].previousInputCount + ' prev');
-  //   console.log(inputStates[id].currentInputCount + ' curr');
-  
-  //   let value = this.value.replace(/[^0-9]/g, '');
-  //       if (value < $(this).data('min')) {
-  //         this.value = $(this).data('min');
-  //       } else if (value > $(this).data('max')) {
-  //         this.value = $(this).data('max');
-  //       } else {
-  //         this.value = value;
-  //       }
-        
-  //       headerCartCount.text(itemCount);
-  //       nav.addClass(navSlided);
-  //       updateAddToBagVisibility($(this).parent().siblings('.add-to-bag'));
-  // });
+  function fillingCart(input) {
+    if (!cartItems[$id]) {
+      cartItems[$id] = { id: $id, name: $name,  quantity: parseInt(input.val()), cost: $cost };
+
+      summa = summa + $cost;
+      $totalSumma.text(`${summa} $`);
+      $totalQuantity.text(`${itemCount / 10} kg.`);
+
+
+      console.log(cartItems)
+    } else {
+      cartItems[$id].quantity += 1;
+      cartItems[$id].cost += $cost;
+
+      summa = summa + $cost;
+      $totalSumma.text(`${summa} $`);
+      $totalQuantity.text(`${itemCount / 10} kg.`);
+
+
+    }
+    createCard()
+  }
+
+
+  function removeFromCart() {
+    if (!cartItems[$id]) {
+      return false
+    } else {
+      cartItems[$id].quantity -= 1;
+      cartItems[$id].cost -= $cost;
+
+      summa = summa - $cost;
+      $totalSumma.text(`${summa} $`);
+      $totalQuantity.text(`${itemCount / 10} kg.`);
+
+      if (cartItems[$id].quantity === 0) {
+        delete cartItems[$id];
+      }
+    }
+    createCard()
+  }
+
+ 
+  function createCard() {
+    if (Object.keys(cartItems).length === 0) {
+      $('#card-list__goods').empty();
+      $('#empty-cart').css('display', 'block');
+      $('#cart-list__goods-container').css('display', 'none');
+    } else {
+      $('#empty-cart').css('display', 'none');
+      $('#cart-list__goods-container').css('display', 'block');
+      $('#card-list__goods').empty();
+      $('#card-list__goods').append( `
+          ${Object.keys(cartItems).map( key => {
+            return `
+                <tr class="cart-list__table-row" >
+                <td>${cartItems[key].name}</td>
+                <td>${cartItems[key].quantity * 100} g.</td>
+                <td>${cartItems[key].cost}$</td>
+                </tr>
+            `
+          }).join('')}
+        `)
+    }
+  }
+
+  $('#clear-cart-button').click(() => {
+    clearCart();
+  })
+
+  function clearCart() {
+    cartItems = {};
+    itemCount = 0;
+    summa = 0;
+    $totalSumma.text(`${summa} $`);
+    $totalQuantity.text(`${itemCount / 10} kg.`);
+    $headerCartCount.text("");
+    createCard();
+    $('.bag-counter__count').each(function() {
+      $(this).val("0");
+      updateAddToBagVisibility($(this));
+    });
+
+    
+  }
 
 
 }
 bagCounting();
 
-// contact-form toaster script
-const contactToaster = $('#contact-form-toaster');
-contactToaster.hide();
 
-$('#contact-form').submit((event) => {
-  event.preventDefault();
-  
-  $('#contact-button').prop('disabled', true);
 
-  contactToaster.fadeIn(1000).delay(1000).addClass('toaster--slide-right');
 
-  setTimeout(() => {
-    contactToaster.removeClass('toaster--slide-right');
-  }, 3999)
-
-  setTimeout(() => {
-    contactToaster.fadeOut(500)
-  }, 4000)
-  
-  setTimeout(() => {
-    $('#contact-button').prop('disabled', false);
-  }, 5000)
-
-})
-
+// click on contact-header refer you to first name input
 $('#contact-header').click(() => {
   $('#contact-form-first-name').trigger('focus');
 })
 
+
+
+
+
+
 })(jQuery);
+
+
+export {cartItems}

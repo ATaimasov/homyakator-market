@@ -1,3 +1,10 @@
+
+// libs
+@import "../../node_modules/@fancyapps/ui/dist/fancybox/fancybox";
+
 @import "./base/reset-min";
 @import "./base/style";
 @import "./plugins/slick";
+
+
+@import "./base/policy";
