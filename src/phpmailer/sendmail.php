@@ -53,12 +53,12 @@ if(trim(!empty($text))) {
 }
 
 if (!empty($products)) {
-    $body .= '<h2>Информация о товарах</h2>';
+    $body .= '<h2>Информация о заказе</h2>';
     foreach ($products as $productId => $product) {
         $body .= "<p><strong>ID:</strong> {$product['id']}<br>";
         $body .= "<strong>Название:</strong> {$product['name']}<br>";
-        $body .= "<strong>Количество:</strong> {$product['quantity']}<br>";
-        $body .= "<strong>Цена:</strong> {$product['cost']}</p>";
+        $body .= "<strong>Количество:</strong> " . ($product['quantity'] / 100) . " kg.<br>";
+        $body .= "<strong>Цена:</strong> {$product['cost']} $</p>";
     }
 }
 

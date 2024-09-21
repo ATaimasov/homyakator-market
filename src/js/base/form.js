@@ -1,4 +1,4 @@
-import { fancyHtml, fancyText } from '../libs/fancybox.js';
+import { fancyHtml, fancyText } from '../libs/popUpText.js';
 import {cartItems} from './script.js'
 
 export const contactForm = () => {
@@ -32,16 +32,17 @@ export const contactForm = () => {
             });
             if (response.ok) {
                 let result = await response.json();
-                form.reset();
-                form.classList.remove('_sending');
-                fancyHtml(fancyText.successSend);
+                
+                    form.reset();
+                    form.classList.remove('_sending');
+                    fancyHtml(fancyText.successSend);
     
-                formToaster()
             } else {
-                fancyHtml(fancyText.errorSend);
-                form.classList.remove('_sending');
+                    fancyHtml(fancyText.errorSend);
+                    form.classList.remove('_sending');
             }
         } else {
+            form.classList.remove('_sending');
             fancyHtml(fancyText.requiredFields)
         }
     }
@@ -86,27 +87,5 @@ function formRemoveError(input) {
 function emailTest(input) { 
     return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 }
-
-const contactToaster = $('#contact-form-toaster');
-contactToaster.hide();
-
-function formToaster() {
-    $('#contact-button').prop('disabled', true);
-
-    contactToaster.fadeIn(1000).delay(1000).addClass('toaster--slide-right');
-  
-    setTimeout(() => {
-      contactToaster.removeClass('toaster--slide-right');
-    }, 3999)
-  
-    setTimeout(() => {
-      contactToaster.fadeOut(500)
-    }, 4000)
-    
-    setTimeout(() => {
-      $('#contact-button').prop('disabled', false);
-    }, 5000)
-}
-
 
 }

@@ -1,5 +1,4 @@
-let  cartItems      = {};
-
+let cartItems = {};
 
 ;(function ($, undefined) {
 
@@ -36,12 +35,16 @@ function throttleToaster (func, delay) {
 const nav = $('#navigation');
 let tempScrollTop = $(window).scrollTop();
 let isMenuOpen = false;
+
+let isBurgerOpen, isBagOpen = false;
+
+
 const navSlided = 'navigation-wrapper--slided';
 const  navFixed = 'navigation-wrapper--fixed';
 
 function fixedNavigation () {
 
-  if (isMenuOpen) return; 
+  if (isMenuOpen || isBagOpen || isBurgerOpen) return; 
   
 
   let currentScrollTop = $(window).scrollTop();
@@ -66,6 +69,9 @@ function fixedNavigation () {
 // burger-menu
 const burgers = $('.burger-line');
 
+const $bag = $('#cart__img');
+const $bagList = $('#cart-list');
+
 $('#burger-menu').on('click', () => {
 
   isMenuOpen = !isMenuOpen; 
@@ -74,6 +80,7 @@ $('#burger-menu').on('click', () => {
     $('#header-list').addClass('header-list--burger-open');
     $('#nav-list').removeClass('header-nav--hidden');
     $('body').css('overflow', 'hidden');
+    $bagList.removeClass('cart-open');
   } else {
     $('#header-list').removeClass('header-list--burger-open');
     $('#nav-list').addClass('header-nav--hidden');
@@ -90,37 +97,50 @@ burgers.each (() => {
 
 $('.header__link-inner-link').on('click', () => {
   if (isMenuOpen) {
-    $('#header-list').removeClass('header-list--burger-open');
-    $('#nav-list').addClass('header-nav--hidden');
-    $('body').css('overflow', 'auto'); 
-    burgers.removeClass('burger-line--opened');
+    closeBurger();
     isMenuOpen = !isMenuOpen;
   }
 }); 
 })
 
-// // header cart toaster
+function closeBurger() {
+  $('#header-list').removeClass('header-list--burger-open');
+  $('#nav-list').addClass('header-nav--hidden');
+  $('body').css('overflow', 'auto'); 
+  burgers.removeClass('burger-line--opened');
 
-// const cartBag = $('#header__cart-bag-toaster');
-// cartBag.hide();
+}
 
-// function cartBagWarning () {
-//   cartBag.fadeIn(1000).delay(1000).addClass('toaster--slide-right');
+// open bag
 
-//   setTimeout(() => {
-//     cartBag.removeClass('toaster--slide-right');
-//   }, 3999)
+function openBag() {
 
-//   setTimeout(() => {
-//     cartBag.fadeOut(500)
-//   }, 4000)
-// }
 
-// let throttledCartBag = throttleToaster (cartBagWarning, 4500);
 
-// $('#cart').click(function () {
-//   throttledCartBag()
-// })
+  $bag.on('click', () => {
+
+    
+    isMenuOpen = !isMenuOpen;
+
+
+    if (isMenuOpen) {
+      $bagList.addClass('cart-open');
+      if($(window).width() < 767) {
+        console.log('width < 767');
+        $('body').css('overflow', 'hidden');
+          closeBurger()
+      }
+    } else {
+      $bagList.removeClass('cart-open');
+      $('body').css('overflow', 'auto');
+    }
+    
+  })
+
+}
+openBag()
+
+
 
 //carousel script
 
@@ -213,60 +233,81 @@ const MakeHighlighted = (highlightedTarget) => {
 }
 
 function scrolling(target, elementToScroll) {
+  isMenuOpen = true;
+  nav.removeClass(navSlided);
   target.preventDefault();
   $('html, body').animate({
   scrollTop: elementToScroll.offset().top 
   }, 100)
+  setTimeout(() => {
+    isMenuOpen = false;
+  }, 1000)
+
 }
 
-$('#try-cornucopia-crunch').click(event =>  {
+$('#try-cornucopia-crunch').on('click', (event) =>  {
   MakeHighlighted('#cornucopia-crunch-bag');
   slider.slick('goTo', 8);
   scrolling(event, $("#buy"));
 }
 );
 
-$('#try-hamster-harvest').click(event =>  {
+$('#try-hamster-harvest').on('click', (event) =>  {
   MakeHighlighted('#hamster-harvest-bag');
   slider.slick('goTo', 14);
   scrolling(event, $("#buy"));
 }
 );
 
-$('#try-paws-crisps').click(event =>  {
+$('#try-paws-crisps').on('click', (event) =>  {
   MakeHighlighted('#Paws-Crips-bag');
   slider.slick('goTo', 17);
   scrolling(event, $("#buy"));
 }
 );
 
-$('#shop-healthy').click(event =>  {
+$('#shop-healthy').on('click', (event) =>  {
   MakeHighlighted('#healthy');
   scrolling(event, $("#buy"));
 
 })
 
-$('#shop-exotic').click(event => {
+$('#shop-exotic').on('click', (event) => {
   MakeHighlighted('#exotic');
   scrolling(event, $("#buy"));
 })
 
-$('#shop-now-button-link, #goods-link').click(event => {
+$('#promotions').on('click', (event) => {
+  MakeHighlighted('#discount');
+  scrolling(event, $("#buy"));
+})
+
+
+$('#shop-now-button-link, #goods-link').on('click', (event) => {
   scrolling(event, $("#buy"));
 });
 
-$('#new-goods-link').click(event => {
+$('#new-goods-link').on('click', (event) => {
   scrolling(event, $("#new-goods"));
 });
 
-$('#contact-link').click(event => {
+$('#contact-link').on('click', (event) => {
   scrolling(event, $("#contact-form"));
+  
 });
 
+$('#footer__contact-link').on('click', (event) => {
+  scrolling(event, $("#contact-form"));
+  MakeHighlighted('#contact-form');
+})
+
+$('#footer__why-us-link').on('click', (event) => {
+  scrolling(event, $("#about-us"));
+})
 
 
 
-// filter and bag-counter interaction  with enter key
+//) filter and bag-counter interaction  with enter key
 
 $(document).on('keydown', (key) => {
   if (key.which === 13) {
@@ -509,15 +550,10 @@ bagCounting();
 
 
 
-
 // click on contact-header refer you to first name input
 $('#contact-header').click(() => {
   $('#contact-form-first-name').trigger('focus');
 })
-
-
-
-
 
 
 })(jQuery);

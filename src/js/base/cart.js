@@ -1,4 +1,4 @@
-import { fancyHtml, fancyText } from '../libs/fancybox.js';
+import { fancyHtml, fancyText } from '../libs/popUpText.js';
 
 
 export const cartMenu = () => {
