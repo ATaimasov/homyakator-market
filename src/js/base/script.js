@@ -34,9 +34,8 @@ function throttleToaster (func, delay) {
 
 const nav = $('#navigation');
 let tempScrollTop = $(window).scrollTop();
-let isMenuOpen = false;
 
-let isBurgerOpen, isBagOpen = false;
+let isBurgerOpen, isBagOpen, isScrolling = false;
 
 
 const navSlided = 'navigation-wrapper--slided';
@@ -44,7 +43,7 @@ const  navFixed = 'navigation-wrapper--fixed';
 
 function fixedNavigation () {
 
-  if (isMenuOpen || isBagOpen || isBurgerOpen) return; 
+  if (isScrolling || isBagOpen || isBurgerOpen) return; 
   
 
   let currentScrollTop = $(window).scrollTop();
@@ -72,75 +71,104 @@ const burgers = $('.burger-line');
 const $bag = $('#cart__img');
 const $bagList = $('#cart-list');
 
-$('#burger-menu').on('click', () => {
+function burgerMenu () {
+  
+  $('#burger-menu').on('click', () => {
 
-  isMenuOpen = !isMenuOpen; 
+    if((isBagOpen && !isBurgerOpen) || (isBagOpen && isBurgerOpen)) {
+      isBurgerOpen = true
+    } else {
+      isBurgerOpen  = !isBurgerOpen; 
+    }
+  
+    if (isBurgerOpen) {
+      $('#header-list').addClass('header-list--burger-open');
+      $('#nav-list').removeClass('header-nav--hidden');
+      $('body').css('overflow', 'hidden');
+      $bagList.removeClass('cart-open');
+  
+      if($(window).width() < 767) {
 
-  if (isMenuOpen) {
-    $('#header-list').addClass('header-list--burger-open');
-    $('#nav-list').removeClass('header-nav--hidden');
-    $('body').css('overflow', 'hidden');
-    $bagList.removeClass('cart-open');
-  } else {
-    $('#header-list').removeClass('header-list--burger-open');
-    $('#nav-list').addClass('header-nav--hidden');
-    $('body').css('overflow', 'auto'); 
-  }
+        if(isBagOpen) {
+          closeBag();
+          isBagOpen = false;
+        }
 
-burgers.each (() => {
-  if (isMenuOpen) {
-    burgers.addClass('burger-line--opened');
-  } else {
-    burgers.removeClass('burger-line--opened');
-  }
-})
+      }
+    } else {
+      closeBurger();
+    }
+  
+   
+  
+  burgers.each (() => {
+    if (isBurgerOpen) {
+      burgers.addClass('burger-line--opened');
+    } else {
+      burgers.removeClass('burger-line--opened');
+    }
+  })
+  
+  $('.header__link-inner-link').on('click', () => {
+    if (isBurgerOpen) {
+      closeBurger();
+      isBurgerOpen  = !isBurgerOpen; 
 
-$('.header__link-inner-link').on('click', () => {
-  if (isMenuOpen) {
-    closeBurger();
-    isMenuOpen = !isMenuOpen;
-  }
-}); 
-})
+      burgers.each (() => {
+        burgers.removeClass('burger-line--opened');
+      })
+
+    } 
+  
+  }); 
+  
+  })
+
+}
+burgerMenu();
 
 function closeBurger() {
   $('#header-list').removeClass('header-list--burger-open');
   $('#nav-list').addClass('header-nav--hidden');
   $('body').css('overflow', 'auto'); 
-  burgers.removeClass('burger-line--opened');
-
 }
 
-// open bag
+// bag
 
-function openBag() {
-
-
+function bagMenu() {
 
   $bag.on('click', () => {
 
-    
-    isMenuOpen = !isMenuOpen;
+    if((!isBagOpen && isBurgerOpen) || (isBagOpen && isBurgerOpen)) {
+      isBagOpen = true;
+      burgers.removeClass('burger-line--opened');
+    } else {
+      isBagOpen  = !isBagOpen; 
+    }
 
-
-    if (isMenuOpen) {
+    if (isBagOpen) {
       $bagList.addClass('cart-open');
+
       if($(window).width() < 767) {
-        console.log('width < 767');
         $('body').css('overflow', 'hidden');
+
+        if(isBurgerOpen) {
           closeBurger()
+          isBurgerOpen = false;
+        }
+
       }
     } else {
-      $bagList.removeClass('cart-open');
-      $('body').css('overflow', 'auto');
+      closeBag()
     }
-    
   })
-
 }
-openBag()
+bagMenu()
 
-
+function closeBag() {
+  $bagList.removeClass('cart-open');
+  $('body').css('overflow', 'auto');
+}
 
 //carousel script
 
@@ -233,14 +261,18 @@ const MakeHighlighted = (highlightedTarget) => {
 }
 
 function scrolling(target, elementToScroll) {
-  isMenuOpen = true;
+  isScrolling = true;
+
+  nav.addClass(navFixed);
   nav.removeClass(navSlided);
+
   target.preventDefault();
   $('html, body').animate({
   scrollTop: elementToScroll.offset().top 
   }, 100)
+
   setTimeout(() => {
-    isMenuOpen = false;
+    isScrolling = false;
   }, 1000)
 
 }
@@ -398,19 +430,55 @@ function bagCounting () {
     }
   }
 
+  let isMinus, isPlus = false;
+
   function addToBag(input) {
 
     if(counterLimit()) {
       return
     }
 
-    if (input.val() === "0" || input.val() === " ") {
-      input.val(parseInt(input.val()) + 1);
-      itemCount += 1;
-      fillingCart(input);
-      $headerCartCount.text(itemCount);
-      console.log(cartItems)
+    isPlus = true;
+    updateCounter(input)
+    // if (input.val() === "0" || input.val() === " ") {
+    //   input.val(parseInt(input.val()) + 1);
+    //   itemCount += 1;
+    //   fillingCart(input);
+    //   $headerCartCount.text(itemCount);
+    //   console.log(cartItems)
+    // }
+    // updateAddToBagVisibility(input);
+    // nav.addClass(navSlided);
+  }
+
+  function updateCounter(input) {
+
+    console.log(input);
+    console.log(isPlus, 'plus');
+    console.log(isMinus, 'minus');
+
+    if(isPlus) {
+      if ((input.val() === "0" || input.val() === " ") || (input.val() < 10)) {
+        input.val(parseInt(input.val()) + 1);
+        itemCount += 1;
+        isPlus = false;
+
+        fillingCart(input);
+ 
+      }
     }
+
+    if(isMinus) {
+     if (input.val() > 0) {
+      input.val(parseInt(input.val()) - 1);
+      itemCount -= 1;
+      isMinus = false;
+
+      removeFromCart(input);
+    }
+
+  }
+    $headerCartCount.text(itemCount);
     updateAddToBagVisibility(input);
     nav.addClass(navSlided);
   }
@@ -421,32 +489,38 @@ function bagCounting () {
       return
     }
 
-    if (input.val() < 10) {
-      input.val(parseInt(input.val()) + 1);
-      itemCount += 1;
-      $headerCartCount.text(itemCount);
-      fillingCart(input);
-      console.log(cartItems)
-    }
-    updateAddToBagVisibility(input);
-    nav.addClass(navSlided);
+    isPlus = true;
+    updateCounter(input)
+    // if (input.val() < 10) {
+    //   input.val(parseInt(input.val()) + 1);
+    //   itemCount += 1;
+    //   $headerCartCount.text(itemCount);
+    //   fillingCart(input);
+    //   console.log(cartItems)
+    // }
+    // updateAddToBagVisibility(input);
+    // nav.addClass(navSlided);
   }
   function counterMinus(input) {
 
-    if (input.val() > 0) {
-      input.val(parseInt(input.val()) - 1);
-      itemCount -= 1;
-      $headerCartCount.text(itemCount);
-      removeFromCart(input);
-      console.log(cartItems)
-    }
+    isMinus = true;
+
+    updateCounter(input)
+
+    // if (input.val() > 0) {
+    //   input.val(parseInt(input.val()) - 1);
+    //   itemCount -= 1;
+    //   $headerCartCount.text(itemCount);
+    //   removeFromCart(input);
+    //   console.log(cartItems)
+    // }
 
     if (itemCount <= 0) {
       $headerCartCount.text("")
     }
 
-    updateAddToBagVisibility(input);
-    nav.addClass(navSlided);
+    // updateAddToBagVisibility(input);
+    // nav.addClass(navSlided);
   }
   
   // bag limit
@@ -463,6 +537,7 @@ function bagCounting () {
       cartItems[$id] = { id: $id, name: $name,  quantity: parseInt(input.val()), cost: $cost };
 
       summa = summa + $cost;
+      console.log(summa, 'summa')
       $totalSumma.text(`${summa} $`);
       $totalQuantity.text(`${itemCount / 10} kg.`);
 

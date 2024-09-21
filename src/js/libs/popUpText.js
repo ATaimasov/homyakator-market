@@ -30,40 +30,12 @@ export const fancyText = {
   <img src="/img/technical-work.png" alt="crazy hamster" class="popUp-message__img">
   <p class="popUp-message__text">This section isn't available yet</>
   </div>
-  `,
-   // cart: `
-  // <div class="cart-list__goods-container" id="cart-list__goods-container">
-  //               <table id="cart-list__table" class="cart-list__table">
-  //                   <thead>
-  //                   <tr class="cart-list__table-row">
-  //                       <th>Product</th>
-  //                       <th>Quantity</th>
-  //                       <th>Price</th>
-  //                   </tr>
-  //               </thead>
-  //               <tbody id="card-list__goods">
-                    
-  //               </tbody>
-  //               <tfoot id="cart-list__table-footer">
-  //                   <tr>
-  //                       <td>Total</td>
-  //                       <td id="cart-list__table-footer-quantity">0 g.</td>
-  //                       <td id="cart-list__table-footer-price">0$</td>
-  //                   </tr>
-  //               </tfoot>
-  //               </table>
-  //               <div class="cart-button-container">   
-  //                   <button class="cart-button cart-button__text" id="cart-button">Checkout</button>
-  //                   <button class="cart-button cart-button__text" id="clear-cart-button">Clear cart</button>
-  //               </div>
-  //           </div>
-  // `
-  // policy text in the policy.js
+  `
 };
 
 
-const operatorName = '<span>Таймасов&nbsp;А.&nbsp;Ю.</span>',
-      siteName     = '<span>https://homyakator.таймасов.рф/</span>',
+const operatorName = '<span >Таймасов&nbsp;А.&nbsp;Ю.</span>',
+      siteName     = '<span class="popUp__domain">homyakator.таймасов.рф</span>',
       operatorMail = '<span>info@таймасов.рф</span>';
 
 
@@ -170,7 +142,7 @@ export const fancyTextLaw = {
                   8.1. Вы можете оставить свои контактные данные в форме обратной связи.
                 </li>
                 <li class="popUp__item">
-                  8.2. Написать мне на почту: alexander.taimasov@gmail.com
+                  8.2. Написать мне на почту: ${operatorMail}
                 </li>
                 <li class="popUp__item">
                   8.3. Написать в телеграмм: <a href="https://t.me/ATaimasov" class="popUp__link" target="_blank">@ATaimasov</a> 
