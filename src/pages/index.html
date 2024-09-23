@@ -16,7 +16,7 @@
         <div class="common-wrapper header-wrapper">
             @@include('../blocks/navigation.html')
             <div class="header__title-container">
-                <h1 class="header__title">H o m y a k a t o r </h1>
+                <h1 class="header__title" id="header-title">H o m y a k a t o r </h1>
                 <h2 class="header__subtitle">Market</h2>
             </div>
             <div class="header__slogan-container">
@@ -1126,10 +1126,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="toaster bag-counter-toaster" id="bag-counter-toaster">
-                    <img src="/img/counter-limit.png" alt="crazy hamster" class="toaser__image bag-counter-toaster-image">
-                    <p class="toaster__text bag-counter-toaster"> You are reach the maximum number of the goods in the order</p>
-                </div>
+                
             </section>
                 <section class="new" id="new-goods">
                     <div class="new__wrapper common-wrapper">
@@ -1330,6 +1327,17 @@
             </div>
         </div>
     </footer>
+
+    <a href="#header-title" class="pageup" id="page-up">
+        <img src="img/favicons/pageup.svg" alt="up" />
+      </a>
+
+      <div class="toaster bag-counter-toaster" id="bag-counter-toaster">
+        <img src="/img/counter-limit.png" alt="crazy hamster" class="toaser__image bag-counter-toaster-image">
+        <p class="toaster__text bag-counter-toaster"> You are reach the maximum number of the goods in the order</p>
+    </div>
+
+
     <script src="/js/app.min.js"></script>
 </body>
 </html>

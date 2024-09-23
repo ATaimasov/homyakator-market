@@ -1,7 +1,7 @@
-import { fancyHtml, fancyText } from '../libs/popUpText.js';
-import {cartItems} from './script.js'
+import { fancyHtml, fancyText } from '../services/modalText.js';
+import {cartItems} from './bagCounter.js'
 
-export const contactForm = () => {
+const contactForm = () => {
 
     const form = document.getElementById('contact');
 
@@ -89,3 +89,5 @@ function emailTest(input) {
 }
 
 }
+
+contactForm()

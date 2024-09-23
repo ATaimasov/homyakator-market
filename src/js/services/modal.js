@@ -1,12 +1,11 @@
-import { fancyHtml } from '../libs/popUpText.js';
-import { fancyTextLaw, fancyText } from '../libs/popUpText.js';
+import { fancyTextLaw, fancyText, fancyHtml } from './modalText.js';
 
-function callPopUp(event,  text) {
+function callModal(event,  text) {
   event.preventDefault();
   fancyHtml(text)
 }
 
-export function popUpPolicy() {
+ function modalPolicy() {
 
   const policy = document.getElementById('policy-text'),
         policyLink = document.getElementById('footer__policy-link');
@@ -14,25 +13,28 @@ export function popUpPolicy() {
 
         [policy, policyLink].forEach(function (elem) {
           elem.addEventListener('click', function (event) {
-            callPopUp(event, fancyTextLaw.policy)
+            callModal(event, fancyTextLaw.policy)
           })
         })
-
-
   }
+modalPolicy()
 
-  export function popUpTerms() {
+
+function modalTerms() {
     const terms = document.getElementById('footer__terms-link');
 
     terms.addEventListener('click', function (event) {
-      callPopUp(event, fancyTextLaw.terms)
+      callModal(event, fancyTextLaw.terms)
     })
   }
+modalTerms()
 
-  export function popUpTechnicalWork() {
+function modalTechnicalWork() {
     const reviews = document.getElementById('reviews');
 
     reviews.addEventListener('click', function (event) {
-      callPopUp(event, fancyText.technicalWork)
+      callModal(event, fancyText.technicalWork)
     })
   }
+
+modalTechnicalWork()
