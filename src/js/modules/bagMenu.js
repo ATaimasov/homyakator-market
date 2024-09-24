@@ -41,7 +41,4 @@ function bagMenu() {
     $('body').css('overflow', 'auto');
   }
 
-
-  
-
   export {$bagList, closeBag}

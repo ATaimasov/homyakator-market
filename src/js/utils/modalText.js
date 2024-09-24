@@ -1,15 +1,9 @@
 import { Fancybox } from "@fancyapps/ui";
 
 export function fancyHtml(text) {
-  Fancybox.show(
-    [
-      {
-        src: text,
-        type: 'html',
-      },
-    ],
-  );
+  Fancybox.show([{ src: text, type: 'html'}]);
 }
+
 
 export const fancyText = {
   successSend   : `
@@ -30,6 +24,25 @@ export const fancyText = {
   <img src="/img/technical-work.png" alt="crazy hamster" class="modal-message__img">
   <p class="modal-message__text">This section isn't available yet</>
   </div>
+  `,
+  checkout: `
+    <section class="contact-form">
+                    <div class="contact-form__wrapper common-wrapper flex-wrapper">
+                        <h4 class="contact-form__header">Leave Your Contact Information</h4>
+                        <p class="contact-form__text">Please fill out the form. This information will help us contact you regarding your order</p>
+                        <form class="contact-form__inputs-container checkout-form" method="post" id="checkout-form">
+                            <div class="contact-form__input-container" >
+                                <input type="text" placeholder="First name" class="contact-form-input" inputmode="text" name="name">
+                                <input type="email" placeholder="Email adress" class="contact-form-input" inputmode="email" name="email" required autocomplete="on">
+                                <button class="contact-button contact-button__text" type="submit">Send</button>
+                            </div>
+                            <div class="contact-form__input-container">
+                                <input type="checkbox" id="checkout-policy" class="contact-form__input-checkbox" required>
+                                <label for="checkout-policy" class="contact-form__checkbox-text">I Accept the <a href="#!" class="contact-form__policy-link contact-form__polity-link--highlighted" id="checkout__policy-link">Terms and Conditions</a></label>
+                            </div>
+                        </form>
+                    </div>
+    </section>
   `
 };
 

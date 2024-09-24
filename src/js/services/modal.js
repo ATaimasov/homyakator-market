@@ -1,4 +1,7 @@
-import { fancyTextLaw, fancyText, fancyHtml } from './modalText.js';
+
+
+import { fancyTextLaw, fancyText, fancyHtml } from '../utils/modalText.js';
+
 
 function callModal(event,  text) {
   event.preventDefault();
@@ -9,6 +12,7 @@ function callModal(event,  text) {
 
   const policy = document.getElementById('policy-text'),
         policyLink = document.getElementById('footer__policy-link');
+  
        
 
         [policy, policyLink].forEach(function (elem) {
@@ -17,6 +21,7 @@ function callModal(event,  text) {
           })
         })
   }
+
 modalPolicy()
 
 
@@ -38,3 +43,6 @@ function modalTechnicalWork() {
   }
 
 modalTechnicalWork()
+
+
+export {callModal}

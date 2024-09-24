@@ -1,10 +1,11 @@
-import { fancyHtml, fancyText } from '../services/modalText.js';
+import { fancyHtml, fancyText } from '../utils/modalText.js';
 import {cartItems} from './bagCounter.js'
 
+const form = document.getElementById('contact');
 
-const contactForm = () => {
+const contactForm = (form) => {
 
-    const form = document.getElementById('contact');
+    
 
     form.addEventListener('submit', formSend);
 
@@ -91,7 +92,7 @@ function emailTest(input) {
 
 }
 
-contactForm()
+contactForm(form);
 
 
 
@@ -101,3 +102,5 @@ $('#contact-header').on('click',(() => {
   })
 )
   
+
+export {contactForm}

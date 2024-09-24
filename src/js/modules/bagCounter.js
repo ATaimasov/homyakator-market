@@ -111,9 +111,9 @@ function bagCounting () {
 
     $headerCartCount.text(itemCount);
     if($headerCartCount.text() >= 10) {
-      $headerCartCount.css('inset', '30% 21%');
+      $headerCartCount.css('inset', '28% 21%');
     } else {
-      $headerCartCount.css('inset', '30% 30%');
+      $headerCartCount.css('inset', '28% 30%');
     }
 
 

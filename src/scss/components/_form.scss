@@ -209,7 +209,7 @@ color: #000;
 .contact-form__input-checkbox:checked + .contact-form__checkbox-text:after {
     content: "" / "filled checkbox";
     position: absolute;
-    left: -20px;
+    left: -21px;
     top: 50%;
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
@@ -286,6 +286,15 @@ color: #000;
     transition: all .6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     background: url("/img/loading.gif") center / 135px no-repeat;
     backdrop-filter: blur(4px);
+}
+
+.checkout-form._sending::after {
+    width: 104%;
+@media screen and (max-width: 915px) {
+    width: 117%;
+    
+}
+
 }
 
 
