@@ -207,16 +207,16 @@ function bagCounting () {
   function createCard() {
     if (Object.keys(cartItems).length === 0) {
       $('#card-list__goods').empty();
-      $('#empty-cart').css('display', 'block');
+      $('#cart__empty').css('display', 'block');
       $('#cart-list__goods-container').css('display', 'none');
     } else {
-      $('#empty-cart').css('display', 'none');
+      $('#cart__empty').css('display', 'none');
       $('#cart-list__goods-container').css('display', 'block');
       $('#card-list__goods').empty();
       $('#card-list__goods').append( `
           ${Object.keys(cartItems).map( key => {
             return `
-                <tr class="cart-list__table-row" >
+                <tr>
                 <td>${cartItems[key].name}</td>
                 <td>${cartItems[key].quantity * 100} g.</td>
                 <td>${cartItems[key].cost}$</td>

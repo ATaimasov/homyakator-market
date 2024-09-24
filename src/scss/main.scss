@@ -1,11 +1,70 @@
+// base
+@import "./base/_reset";
+@import "./base/_print";
 
-// libs
+// vendor
 @import "../../node_modules/@fancyapps/ui/dist/fancybox/fancybox";
+@import "./vendor/_slick"; 
 
-@import "./base/reset-min";
-@import "./base/style";
-@import "./plugins/slick";
+.common-wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.flex-wrapper {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+::selection {
+    background-color: #bebcb9;
+    color: black;
+}
 
 
-@import "./blocks/_modal";
-@import "./blocks/_pageup";
+:is(:link, :visited)::selection  {
+    color: #35343471
+}
+
+:is(:is(:link, :visited):hover)::selection  {
+    color: #353434;
+  }
+
+.hidden {
+    display: none;
+}
+
+  
+@media screen and (max-width: 915px) {
+    
+    html {
+        font-size: 62.5%;
+    }
+
+}
+
+@media screen and (max-width: 345px) {
+   
+    html {
+        font-size: 50%;
+    }
+
+}
+
+// layout
+@import "./layout/_header";
+@import "./layout/_footer";
+
+// components
+@import "./components/_modal";
+@import "./components/_pageup";
+@import "./components/_cart";
+@import "./components/_toaster";
+@import "./components/_button";
+@import "./components/_about-us";
+@import "./components/_new";
+@import "./components/_form";
+@import "./components/_catalog";

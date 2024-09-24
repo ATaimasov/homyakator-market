@@ -1,0 +1,217 @@
+
+
+.new__wrapper {
+    padding-top: 70px;
+}
+
+.new-header {
+    font-weight: 700;
+    font-size: 4.5rem;
+    line-height: 100%;
+    color: #343434;
+    text-align: center;
+    padding-bottom: 35px;
+}
+
+.new-goods-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (100%)[1];
+    grid-template-columns: repeat(1, 100%);
+    max-width: 66.6%;
+    margin: 0 auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.new-good-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 43% 57%;
+    grid-template-columns: 43% 57%;
+    padding: 60px 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.new-good-container-left {
+    -ms-grid-columns: 57% 43%;
+    grid-template-columns: 57% 43%;
+}
+
+.new-good__image {
+    max-width: 100%;
+    -webkit-clip-path: circle(49%);
+            clip-path: circle(49%);   
+    -o-object-fit: contain;   
+       object-fit: contain;
+}
+
+.new-good__image-text {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin: 0 auto;
+    padding: 35px 90px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: relative;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+}
+
+.new-good__image-title {
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 100%;
+    color: #343434;
+    padding-bottom: 15px;
+}
+
+.new-good__image-desc {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 171%;
+    color: #747474;
+}
+
+.new-good__image-text-left{
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+}
+
+.try-new-good__link {
+    font-family: "Butterfly Kids", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4rem;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    color: #353434;
+    position: absolute;
+    top: 97%;
+    text-decoration: none;
+}
+
+.try-new-good__link--highlighted {
+    -webkit-transition: -webkit-transform .35s cubic-bezier(0.47, -0.44, 0.49, 1.46);
+    transition: -webkit-transform .35s cubic-bezier(0.47, -0.44, 0.49, 1.46);
+    -o-transition: transform .35s cubic-bezier(0.47, -0.44, 0.49, 1.46);
+    transition: transform .35s cubic-bezier(0.47, -0.44, 0.49, 1.46);
+    transition: transform .35s cubic-bezier(0.47, -0.44, 0.49, 1.46), -webkit-transform .35s cubic-bezier(0.47, -0.44, 0.49, 1.46);
+   
+}
+
+.try-new-good__link--highlighted:is(:hover, :active, :focus) {
+   
+    -webkit-transform: scale(1.05);
+   
+        -ms-transform: scale(1.05);
+   
+            transform: scale(1.05);
+}
+
+
+
+
+@media screen and (max-width: 1264px) {
+
+    .new-goods-container {
+        max-width: 80%;
+    }
+
+  
+
+}
+
+@media screen and (max-width: 940px) {
+
+    .new-goods-container {
+        max-width: 90%;
+    }
+
+}
+
+
+
+@media screen and (max-width: 915px) {
+    
+ 
+
+    .new-good-container {
+        padding: 30px 0;
+    }
+
+    .new-good__image-text {
+        padding: 20px 35px;
+    }
+
+}
+
+
+@media screen and (max-width: 638px) {
+
+    
+    .new__wrapper {
+        padding-top: 40px;
+    }
+
+    .new-header {
+        padding-bottom: 0px;
+    }
+
+    .new-good-container {
+        padding: 40px 0;
+    }
+
+
+}
+
+
+
+@media screen and (max-width: 470px) {
+
+
+    .new-goods-container {
+        max-width: 97%;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+
+
+
+    .new-header {
+        font-size: 3rem;
+    }
+
+    .new-good__image-title {
+        font-size: 2rem;
+    }
+
+    .new-good__image {
+        
+        -o-object-fit: contain;
+        
+           object-fit: contain;
+    }
+
+
+}
+
+
+@media screen and (max-width: 280px) {
+    .new-good__image-text {
+        padding: 20px 20px;
+    }
+}

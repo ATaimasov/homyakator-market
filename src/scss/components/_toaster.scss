@@ -1,0 +1,42 @@
+
+.toaster {
+    min-width: 300px;
+    max-width: 325px;
+    background-color: #333;
+    color: #fff; 
+    display: -webkit-box; 
+    display: -ms-flexbox; 
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 2px;
+    padding: 0 15px;
+    -webkit-transition: -webkit-transform .5s ease-out;
+    transition: -webkit-transform .5s ease-out;
+    -o-transition: transform .5s ease-out;
+    transition: transform .5s ease-out;
+    transition: transform .5s ease-out, -webkit-transform .5s ease-out; 
+    position: fixed;
+    z-index: 1;
+            transform: translateX(-100%); 
+}
+
+.toaser__image {
+    max-width: 35%;
+    height: auto;
+}
+
+.toaster__text {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 171%;
+    color: white;
+}
+
+.toaster.toaster--slide-right {
+            transform: translateX(0); 
+}

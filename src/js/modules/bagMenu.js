@@ -1,5 +1,5 @@
 import { navState }   from "../services/fixedNavigation.js";
-import { $burgers } from "./burgerMenu.js";
+import { $burgers, closeBurger } from "./burgerMenu.js";
 
 const $bag     = $('#cart__img'),
       $bagList = $('#cart-list');
@@ -8,7 +8,6 @@ const $bag     = $('#cart__img'),
 function bagMenu() {
 
     $bag.on('click', () => {
-  
       if((!navState.isBagOpen && navState.isBurgerOpen) 
         || 
         (navState.isBagOpen && navState.isBurgerOpen)) {
@@ -41,7 +40,8 @@ function bagMenu() {
     $bagList.removeClass('cart-open');
     $('body').css('overflow', 'auto');
   }
+
+
   
 
-
-  export {$bagList}
+  export {$bagList, closeBag}

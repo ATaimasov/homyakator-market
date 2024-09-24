@@ -1,5 +1,5 @@
-import { navigationState } from "../services/fixedNavigation.js";
-import { $bagList } from "./bagMenu.js";
+import { navState } from "../services/fixedNavigation.js";
+import { $bagList, closeBag } from "./bagMenu.js";
 
 // burger-menu
 const $burgers  = $('.burger-line');
@@ -8,13 +8,13 @@ function burgerMenu () {
   
   $('#burger-menu').on('click', () => {
 
-    if((isBagOpen && !isBurgerOpen) || (isBagOpen && isBurgerOpen)) {
-      isBurgerOpen = true
+    if((navState.isBagOpen && !navState.isBurgerOpen) || (navState.isBagOpen && navState.isBurgerOpen)) {
+      navState.isBurgerOpen = true
     } else {
-      isBurgerOpen  = !isBurgerOpen; 
+      navState.isBurgerOpen  = !navState.isBurgerOpen; 
     }
   
-    if (isBurgerOpen) {
+    if (navState.isBurgerOpen) {
       $('#header-list').addClass('header-list--burger-open');
       $('#nav-list').removeClass('header-nav--hidden');
       $('body').css('overflow', 'hidden');
@@ -22,9 +22,9 @@ function burgerMenu () {
   
       if($(window).width() < 767) {
 
-        if(isBagOpen) {
+        if(navState.isBagOpen) {
           closeBag();
-          isBagOpen = false;
+          navState.isBagOpen = false;
         }
 
       }
@@ -33,7 +33,7 @@ function burgerMenu () {
     }
   
   $burgers.each (() => {
-    if (isBurgerOpen) {
+    if (navState.isBurgerOpen) {
       $burgers.addClass('burger-line--opened');
     } else {
       $burgers.removeClass('burger-line--opened');
@@ -41,9 +41,9 @@ function burgerMenu () {
   })
   
   $('.header__link-inner-link').on('click', () => {
-    if (isBurgerOpen) {
+    if (navState.isBurgerOpen) {
       closeBurger();
-      isBurgerOpen  = !isBurgerOpen; 
+      navState.isBurgerOpen  = !navState.isBurgerOpen; 
 
       $burgers.each (() => {
         $burgers.removeClass('burger-line--opened');
@@ -67,4 +67,4 @@ function closeBurger() {
   }
 
 
-  export { $burgers }
+  export { $burgers, closeBurger }

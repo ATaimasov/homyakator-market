@@ -17,7 +17,6 @@ const $nav       = $('#navigation'),
 
 let $tempScrollTop = $(window).scrollTop();
 
-// let isBurgerOpen, isBagOpen, isScrolling = false;
 
 
 
@@ -26,6 +25,7 @@ function fixedNavigation () {
   if (navState.isScrolling || navState.isBagOpen || navState.isBurgerOpen) return; 
   
   let $currentScrollTop = $(window).scrollTop();
+
 
   if ($currentScrollTop > $nav.height()) {
     $nav.addClass($navHidden);
@@ -41,8 +41,8 @@ function fixedNavigation () {
   $tempScrollTop = $currentScrollTop;
   };
 
-  let throttledfixedNavigation = throttle(fixedNavigation, 200);
-  $(window).scroll(throttledfixedNavigation);
+  const throttledfixedNavigation = throttle(fixedNavigation, 200);
+  $(window).on('scroll', throttledfixedNavigation), {passive: true};
 
 
   export {$nav, $navAppearing, $navHidden}; 

@@ -14,39 +14,5 @@
         <div class="burger-line"></div>
         <div class="burger-line"></div>
     </div>
-    <div class="cart" id="cart">
-        <div class="cart-list" id="cart-list">
-            <p class="cart-list__title">Cart</p>
-            <div id="empty-cart"> 
-                <h2>Your shopping cart is empty</h2>
-            </div>
-            <div class="cart-list__goods-container" id="cart-list__goods-container">
-                <table id="cart-list__table" class="cart-list__table">
-                    <thead>
-                    <tr class="cart-list__table-row">
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody id="card-list__goods">
-                    
-                </tbody>
-                <tfoot id="cart-list__table-footer">
-                    <tr>
-                        <td>Total</td>
-                        <td id="cart-list__table-footer-quantity">0 g.</td>
-                        <td id="cart-list__table-footer-price">0$</td>
-                    </tr>
-                </tfoot>
-                </table>
-                <div class="cart-button-container">   
-                    <button class="cart-button cart-button__text" id="cart-button">Checkout</button>
-                    <button class="cart-button cart-button__text" id="clear-cart-button">Clear cart</button>
-                </div>
-            </div>
-        </div>
-        <span class="cart__img-counter" data-bag-counter="0" id="cart__img-counter"></span>
-        <img src="/img/shopping-cart.png" alt="shopping cart" class="cart__img" id="cart__img" id="cart__img">
-    </div>
+    @@include('../blocks/cart.html')
 </div>

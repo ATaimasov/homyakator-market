@@ -1,6 +1,7 @@
 import { fancyHtml, fancyText } from '../services/modalText.js';
 import {cartItems} from './bagCounter.js'
 
+
 const contactForm = () => {
 
     const form = document.getElementById('contact');
@@ -91,3 +92,12 @@ function emailTest(input) {
 }
 
 contactForm()
+
+
+
+// click on contact-header refer you to first name input
+$('#contact-header').on('click',(() => {
+    $('#contact-form-first-name').trigger('focus');
+  })
+)
+  

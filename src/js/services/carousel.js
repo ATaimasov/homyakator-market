@@ -24,6 +24,6 @@ slider.slick( {
       }
     },
    ]
-})
+});
 
 export {slider}
