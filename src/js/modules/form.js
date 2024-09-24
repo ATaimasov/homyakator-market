@@ -3,7 +3,7 @@ import {cartItems} from './bagCounter.js'
 
 const form = document.getElementById('contact');
 
-const contactForm = (form) => {
+const sendForm = (form) => {
 
     
 
@@ -92,7 +92,7 @@ function emailTest(input) {
 
 }
 
-contactForm(form);
+sendForm(form);
 
 
 
@@ -103,4 +103,4 @@ $('#contact-header').on('click',(() => {
 )
   
 
-export {contactForm}
+export {sendForm}

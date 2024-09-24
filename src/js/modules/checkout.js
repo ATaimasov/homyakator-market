@@ -1,5 +1,5 @@
 import { Fancybox } from '@fancyapps/ui';
-import { contactForm } from './form.js'
+import { sendForm } from './form.js'
 import { fancyText } from '../utils/modalText.js';
 import {callModal} from '../services/modal.js'
 
@@ -20,7 +20,7 @@ function callCheckout() {
               callModal(event, fancyTextLaw.policy)
             })
   
-            contactForm(form);
+            sendForm(form);
             
           },
         }
