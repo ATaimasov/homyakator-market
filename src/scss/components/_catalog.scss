@@ -187,6 +187,7 @@
     max-height: 30px;
     min-width: 142px;
     display: none;
+    justify-content: space-around;
     
 }
 
@@ -261,15 +262,6 @@
     padding-top: 10px;
 }
 
-.goods-card__info-discount-good::after {
-    content: "1.5$";
-    color: green;
-    position: absolute;
-    font-size: 1.6em;
-    top: -90%;
-    left: 45%;
-
-}
 
 .goods-card__info-bag {
     font-weight: 400;
@@ -314,7 +306,7 @@
 }
 
 .goods-card__info-price-discount {
-    color: red;
+    color: green;
 }
 
 
@@ -342,9 +334,7 @@
         margin-top: 25px;
     }
 
-    .goods-card__info-discount-good::after {
-        left: 33%;
-    }
+
 
 
 }
@@ -356,9 +346,7 @@
         min-width: 285px;
     }
 
-    .goods-card__info-discount-good::after {
-        left: 44%;
-    }
+  
 
     .goods-card__image {
         max-width: 285px;
@@ -382,10 +370,7 @@
         min-width: 250px;
     }
 
-    .goods-card__info-discount-good::after {
-        left: 40%;
-    }
-
+  
     .goods-card__info-bag {
         margin-right: 5px;
     }
@@ -436,11 +421,7 @@
         padding-top: 7px;
         margin-top: 7px;
     }
-    .goods-card__info-discount-good::after {
-        left: 7%;
-        top: 70%;
-        font-size: 1.2em;
-    }
+
 
     .goods-card__info-bag {
         font-size: 1.2rem;
@@ -480,10 +461,7 @@
         min-width: 150px;
     }
 
-    .goods-card__info-discount-good::after {
-        left: 0%;
-        top: 45%;
-    }
+
 
     .goods-card__image {
         max-width: 150px;
@@ -496,17 +474,6 @@
 
 
 }
-
-@media screen and (max-width: 370px) {
-
-    .goods-card__info-discount-good::after {
-        left: 10%;
-        top: 48%;
-    }
-    
-
-}
-
 
 @media screen and (max-width: 345px) {
    

@@ -1,7 +1,7 @@
 import { Fancybox } from '@fancyapps/ui';
 import { sendForm } from './form.js'
-import { fancyText } from '../utils/modalText.js';
-import {callModal} from '../services/modal.js'
+import { fancyText, fancyTextLaw } from '../utils/modalText.js';
+import { callModal} from '../services/modal.js'
 
 
 function callCheckout() {

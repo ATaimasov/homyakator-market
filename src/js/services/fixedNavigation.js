@@ -8,7 +8,6 @@ const navState = {
   isBurgerOpen: false
 }
 
-
 // fixed nav script
 
 const $nav       = $('#navigation'),
@@ -25,7 +24,6 @@ function fixedNavigation () {
   if (navState.isScrolling || navState.isBagOpen || navState.isBurgerOpen) return; 
   
   let $currentScrollTop = $(window).scrollTop();
-
 
   if ($currentScrollTop > $nav.height()) {
     $nav.addClass($navHidden);

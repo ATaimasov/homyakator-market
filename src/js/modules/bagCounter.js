@@ -2,7 +2,8 @@
 // bag-counter limit toaster
 
 import { throttleToaster } from "../utils/throttle.js";
-import { $nav, $navAppearing } from "../services/fixedNavigation.js";
+import { $nav, $navAppearing, navState } from "../services/fixedNavigation.js";
+
 
 const bagCounterToaster = $('#bag-counter-toaster')
 bagCounterToaster.hide();
@@ -128,6 +129,12 @@ function bagCounting () {
 
     if(counterLimit()) {
       return
+    }
+
+    if($(window).width() > 1400) {
+      if(!navState.isBagOpen) {
+        $('#cart__img').trigger('click');
+      }
     }
 
     isPlus = true;
