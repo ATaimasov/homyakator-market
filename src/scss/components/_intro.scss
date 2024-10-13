@@ -1,0 +1,133 @@
+.intro {
+
+    &-wrapper {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+
+        iframe {
+            min-width: 300px;
+            min-height: 300px;
+        }
+    }
+
+    &__title-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 50% 50%;
+        align-items: center;
+        justify-items: center;
+        &--padding {
+            
+        }
+    }
+
+
+}
+
+.intro__button-link {
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 171%;
+    letter-spacing: 0.21em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #343434;
+    padding: 20px 70px;
+    background-color: #FABAA0;
+    text-decoration: none;
+}
+
+.intro__button-link:is(:hover, :active, :focus) {
+    background-color: #f1b39a;
+}
+
+
+.intro__button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.intro__title-container {
+    gap: 30px;
+}
+
+.intro__header-container {
+    font-weight: 400;
+    font-size: 4.5rem;
+    line-height: 95%;
+    text-align: center;
+    color: #747474;
+}
+
+.intro__subtitle {
+    font-size: 2.5rem;
+}
+
+.intro__slogan-container {
+    font-weight: 700;
+    font-size: 8rem;
+    line-height: 112%;
+    letter-spacing: 0.01em;
+    text-align: center;
+    color: #343434;
+}
+
+
+
+
+
+@media screen and (max-width: 915px) {
+    
+    .intro__title-container {
+        gap: 30px;
+    }
+
+
+}
+
+
+@media screen and (max-width: 638px) {
+
+    .intro__slogan-container {
+        font-size: 6rem;
+    }
+
+    .intro__header-container {
+        font-size: 3rem;
+    }
+
+
+}
+
+
+@media screen and (max-width: 420px) {
+
+    .intro__slogan-container {
+        font-size: 5rem;
+    }
+
+    .intro__header-container {
+        font-size: 3rem;
+    }
+
+
+}
+
+
+@media screen and (max-width: 345px) {
+   
+   
+
+    .intro__slogan-item {
+        font-size: 4rem;
+    }
+
+
+}

@@ -41,3 +41,21 @@ function homyakator() {
 
 
 homyakator()
+
+
+function modalReviews() {
+    const reviews = document.getElementById('reviews');
+
+    reviews.addEventListener('click', function (event) {
+      
+      Fancybox.show( [
+        {
+          src: 'https://www.youtube.com/embed/my2Di9FVR9I',
+          type: "video",
+        },
+      ]
+    )
+  })
+}
+
+modalReviews()

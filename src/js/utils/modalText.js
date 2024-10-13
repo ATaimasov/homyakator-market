@@ -43,7 +43,7 @@ export const fancyText = {
                         </form>
                     </div>
     </section>
-  `
+  `,
 };
 
 

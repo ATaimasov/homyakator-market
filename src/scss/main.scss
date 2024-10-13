@@ -11,6 +11,10 @@
     margin: 0 auto;
 }
 
+.fullscreen {
+    min-height: 100lvh;
+}
+
 .flex-wrapper {
     display: flex;
     justify-content: center;
@@ -68,3 +72,4 @@
 @import "./components/_new";
 @import "./components/_form";
 @import "./components/_catalog";
+@import "./components/_intro"

@@ -7,7 +7,7 @@ $('#page-up').on('click',((e) => {
 )
 
 function pageUp() {
-    if ($(window).scrollTop() > 1600) {
+    if ($(window).scrollTop() > 1600 && $(window).width() > 1400) {
         $('#page-up').fadeIn();
       } else {
         $('#page-up').fadeOut();

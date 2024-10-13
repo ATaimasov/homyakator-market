@@ -17,7 +17,7 @@ import './modules/bagCounter.js';
 import './modules/burgerMenu.js';
 import './modules/scrollingScript.js';
 import './modules/filterScript.js';
-import './modules/homyakator.js';
+import './modules/homykatorModals.js';
 import './modules/checkout.js';
 
 

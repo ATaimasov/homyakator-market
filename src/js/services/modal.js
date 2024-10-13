@@ -34,15 +34,16 @@ function modalTerms() {
   }
 modalTerms()
 
-function modalTechnicalWork() {
-    const reviews = document.getElementById('reviews');
 
-    reviews.addEventListener('click', function (event) {
-      callModal(event, fancyText.technicalWork)
-    })
-  }
+// function modalTechnicalWork() {
+//     const reviews = document.getElementById('reviews');
 
-modalTechnicalWork()
+//     reviews.addEventListener('click', function (event) {
+//       callModal(event, fancyText.technicalWork)
+//     })
+//   }
+
+// modalTechnicalWork()
 
 
 export {callModal}
