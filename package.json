@@ -23,6 +23,7 @@
     "@fancyapps/ui": "^5.0.36",
     "browser-sync": "^3.0.2",
     "del": "^7.1.0",
+    "dotenv": "^16.4.5",
     "gulp": "^5.0.0",
     "gulp-autoprefixer": "^9.0.0",
     "gulp-clean-css": "^4.3.0",

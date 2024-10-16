@@ -3,6 +3,10 @@ import gulp from "gulp";
 import { path } from "./gulp/config/path.js";
 import { plugins } from "./gulp/config/plugins.js";
 
+import dotenv from 'dotenv';
+dotenv.config();
+
+
 global.app = {
     isBuild: process.argv.includes('--build'),
     isDev  : !process.argv.includes('--build'),
@@ -39,7 +43,6 @@ const mainTasks = gulp.parallel(images, copy, html, scss, js);
 const dev       = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 const build     = gulp.series(reset, mainTasks);
 const deployFTP = gulp.series(reset, mainTasks, ftp);
-
 
 export { dev, build, deployFTP };
 
