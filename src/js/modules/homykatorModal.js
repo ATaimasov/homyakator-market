@@ -17,8 +17,12 @@ function homyakatorModal() {
                             caption: `A little bit about us`,
                         },
                         {
+                            src: '/videos/Be-part-of-Homas.mp4',
+                            caption: `Be part of Homas`,
+                        },
+                        {
                             src: '/videos/hamster-riding.mp4',
-                            caption: `Homa's got wheels!`,
+                            caption: `Homa got wheels!`,
                         },
                         {
                             src: '/videos/hamster-happy.mp4',
@@ -30,7 +34,7 @@ function homyakatorModal() {
                         },
                         {
                             src: '/videos/another-hamster-riding.mp4',
-                            caption: `Another homas on the move: never stop exploring`,
+                            caption: `Another homa on the move: never stop exploring`,
                         },
                         {
                             src: '/videos/hamsters-nsfw-reference.mp4',
